@@ -1,0 +1,37 @@
+Name             { Morningstar }
+Reference        { Morningstar-CC }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 60 }
+Comment          { Saved by: Spectre(#4628) at Thu Jul 11 08:09:42 2002 }
+Computer         { 4 }
+Radio            { 4 }
+Mech_BV          { 350 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
+Max_Speed        { 86.00 }
+Specials         { XLEngine_Tech }
+Left_Side
+  Armor            { 29 }
+  Internals        { 6 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+Right_Side
+  Armor            { 29 }
+  Internals        { 6 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+Front_Side
+  Armor            { 43 }
+  Internals        { 6 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+Aft_Side
+  Armor            { 19 }
+  Internals        { 6 }
+    CRIT_1		  { Ammo_IS.AC/5 20 - - }
+    CRIT_2		  { Ammo_IS.MachineGun 200 - - }
+    CRIT_3		  { C3Master - - 0 }
+    CRIT_4		  { C3Master - - 3 }
+    CRIT_5		  { Ecm - - 3 }
+Turret
+  Armor            { 24 }
+  Internals        { 6 }
+    CRIT_1		  { IS.AC/5 - - 3 }

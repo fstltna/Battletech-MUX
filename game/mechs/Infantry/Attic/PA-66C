@@ -1,0 +1,17 @@
+Name             { PowerArmor }
+Reference        { PA-66C }
+Type             { Battlesuit }
+Move_Type        { Biped }
+Tons             { 1 }
+Tac_Range        { 15 }
+LRS_Range        { 25 }
+Scan_Range       { 15 }
+Radio_Range      { 45 }
+Max_Speed        { 64.50 }
+Jump_Speed       { 43.00 }
+Specials         { FWLStealth_Tech }
+Suit_1
+  Armor            { 15 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - 3 }
+    CRIT_2		  { IS.SmallLaser - - 0 }

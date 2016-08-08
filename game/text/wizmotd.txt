@@ -1,0 +1,2 @@
+Mental note: check out all files in the game/text directory, and edit them
+to suit my site.

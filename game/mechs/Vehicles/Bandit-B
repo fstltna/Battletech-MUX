@@ -1,0 +1,30 @@
+Name             { Bandit }
+Reference        { Bandit-B }
+Type             { Vehicle }
+Move_Type        { Hover }
+Tons             { 50 }
+Comment          { Saved by: Charlemagne(#4624) at Sun Mar  5 02:06:14 2000 }
+Mech_BV          { 389 }
+Cargo_Space      { 4096 }
+Max_Speed        { 150.50 }
+Specials         { CargoTech }
+Left_Side
+  Armor            { 40 }
+  Internals        { 5 }
+Right_Side
+  Armor            { 40 }
+  Internals        { 5 }
+Front_Side
+  Armor            { 42 }
+  Internals        { 5 }
+    CRIT_1		  { IS.SRM-2 - - 3 }
+    CRIT_2		  { Ammo_IS.SRM-2 50 - - }
+Aft_Side
+  Armor            { 32 }
+  Internals        { 5 }
+Turret
+  Armor            { 22 }
+  Internals        { 5 }
+    CRIT_1		  { IS.SRM-4 - - 3 }
+    CRIT_2		  { IS.SRM-4 - - 3 }
+    CRIT_3		  { Ammo_IS.SRM-4 25 - - }

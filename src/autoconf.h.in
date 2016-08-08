@@ -1,0 +1,213 @@
+/* autoconf.h.in -- System-dependent configuration information */
+
+#ifndef AUTOCONF_H
+#define AUTOCONF_H
+
+#include "copyright.h"
+
+/* ---------------------------------------------------------------------------
+ * Configuration section:
+ *
+ * These defines are written by the configure script.
+ * Change them if need be
+ */
+
+/* Define if we have stdlib.h et al */
+#undef STDC_HEADERS
+/* Define if we have string.h instead of strings.h */
+#undef USG
+/* Define if we have unistd.h */
+#undef HAVE_UNISTD_H
+/* Define if we have memory.h and need it to get memcmp et al */
+#undef NEED_MEMORY_H
+/* Decl for pid_t */
+#undef pid_t
+/* signal() return type */
+#define RETSIGTYPE void
+/* Define if we have vfork.h */
+#undef HAVE_VFORK_H
+/* Define if vfork is broken */
+#undef vfork
+/* Define if wait3 exists and works */
+#undef HAVE_WAIT3
+/* Define if struct tm is not in time.h */
+#undef TM_IN_SYS_TIME
+/* Define if struct tm has a timezone member */
+#undef HAVE_TM_ZONE
+/* Define if tzname[] exists */
+#undef HAVE_TZNAME
+/* Define if setrlimit exists */
+#undef HAVE_SETRLIMIT
+/* Define if getrusage exists */
+#undef HAVE_GETRUSAGE
+/* Define if timelocal exists */
+#undef HAVE_TIMELOCAL
+/* Define if mktime exists */
+#undef HAVE_MKTIME
+/* Define if getdtablesize exists */
+#undef HAVE_GETDTABLESIZE
+/* Define if getpagesize exists */
+#undef HAVE_GETPAGESIZE
+/* Define if gettimeofday exists */
+#undef HAVE_GETTIMEOFDAY
+/* Define if srandom exists */
+#undef HAVE_SRANDOM
+/* Define if sys_siglist[] exists */
+#undef HAVE_SYS_SIGLIST
+/* Define if _sys_siglist[] exists */
+#undef HAVE__SYS_SIGLIST
+/* Define if index/rindex/mem??? are defined in string.h */
+#undef INDEX_IN_STRING_H
+/* Define if malloc/realloc/free are defined in stdlib.h */
+#undef MALLOC_IN_STDLIB_H
+/* Define if calling signal with SIGCHLD when handling SIGCHLD blows chow */
+#undef SIGNAL_SIGCHLD_BRAINDAMAGE
+/* Define if errno.h exists */
+#undef HAVE_ERRNO_H
+/* Define if sys/select.h exists */
+#undef HAVE_SYS_SELECT_H
+/* Define if sys/rusage.h exists */
+#undef HAVE_SYS_RUSAGE_H
+/* Define if const is broken */
+#undef const
+/* Define if char type is unsigned */
+#undef __CHAR_UNSIGNED__
+/* Define if inline keyword is broken or nonstandard */
+#undef inline
+/* Define if struct linger is defined */
+#undef HAVE_LINGER
+/* Define if sys/wait.h defines union wait. */
+#undef HAVE_UNION_WAIT
+/* Define if we may safely include both time.h and sys/time.h */
+#undef TIME_WITH_SYS_TIME
+/* Define if sys/time.h exists */
+#undef HAVE_SYS_TIME_H
+
+/* ---------------------------------------------------------------------------
+ * Setup section:
+ *
+ * Load system-dependent header files.
+ */
+
+/* Prototype templates for ANSI C and traditional C */
+
+#ifdef __STDC__
+#define	NDECL(f)	f(void)
+#define	FDECL(f,p)	f p
+#ifdef STDC_HEADERS
+#define	VDECL(f,p)	f p
+#else
+#define VDECL(f,p)	f()
+#endif
+#else
+#define NDECL(f)	f()
+#define FDECL(f,p)	f()
+#define VDECL(f,p)	f()
+#endif
+
+#ifdef STDC_HEADERS
+#include <stdarg.h>
+#include <stdlib.h>
+#include <limits.h>
+#else
+#include <varargs.h>
+extern int	FDECL(atoi, (const char *));
+extern double	FDECL(atof, (const char *));
+extern long	FDECL(atol, (const char *));
+#endif
+
+#ifdef NEED_MEMORY_H
+#include <memory.h>
+#endif
+
+#if defined(USG) || defined(STDC_HEADERS)
+#include <string.h>
+#else
+#include <strings.h>
+extern char *	FDECL(strtok, (char *, char *));
+extern char *	FDECL(strchr, (char *, char));
+extern void	FDECL(bcopy, (char *, char *, int));
+extern void	FDECL(bzero, (char *, int));
+#endif
+
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
+
+#ifdef HAVE_SYS_RUSAGE_H
+#include <sys/rusage.h>
+#endif
+
+#ifdef TIME_WITH_SYS_TIME
+#include <sys/time.h>
+#include <time.h>
+#else
+#ifdef HAVE_SYS_TIME_H
+#include <sys/time.h>
+#else
+#include <time.h>
+#endif
+#endif
+
+#if defined(HAVE_SETRLIMIT) || defined(HAVE_GETRUSAGE)
+#include <sys/resource.h>
+#endif
+
+#include <sys/param.h>
+#ifndef HAVE_GETPAGESIZE
+#include "getpagesize.h"
+#else
+#ifndef HAVE_UNISTD_H
+extern int	NDECL(getpagesize);
+#endif /* HAVE_UNISTD_H */
+#endif /* HAVE_GETPAGESIZE_H */
+
+#ifdef HAVE_ERRNO_H
+#include <errno.h>
+#else
+extern int errno;
+extern void	FDECL(perror, (const char *));
+#endif
+
+#ifndef HAVE_TIMELOCAL
+
+#ifndef HAVE_MKTIME
+#define NEED_TIMELOCAL
+extern time_t	FDECL(timelocal, (struct tm *));
+#else
+#define timelocal mktime
+#endif /* HAVE_MKTIME */
+
+#endif /* HAVE_TIMELOCAL */
+
+#ifndef tolower
+extern int	FDECL(tolower, (int));
+#endif
+#ifndef toupper
+extern int	FDECL(toupper, (int));
+#endif
+
+#ifndef HAVE_SRANDOM
+#define random rand
+#define srandom srand
+#endif /* HAVE_SRANDOM */
+
+#include <sys/types.h>
+#include <stdio.h>
+#include <ctype.h>
+
+#ifndef VMS
+#include <fcntl.h>
+#else
+#include <sys/fcntl.h>
+#endif
+
+#include <sys/socket.h>
+
+typedef int	dbref;
+typedef int	FLAG;
+typedef int     POWER;
+typedef char	boolexp_type;
+typedef char	IBUF[16];
+
+#endif /* AUTOCONF_H */

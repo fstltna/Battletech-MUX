@@ -1,0 +1,9 @@
+
+This directory should hold the extensive documentation included in the
+Battletech MUX project. Unfortunately, there currently is almost none. What
+little documentation there is resides mostly in the source or in the
+'wiznews' file included in the game directory. Nevertheless, here we have:
+
+hudinfo.spec		Specifications for the 'hudinfo' command and its
+			responses.
+

@@ -1,0 +1,23 @@
+Name             { APC }
+Reference        { Heavy_Wheeled_APC }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 20 }
+Computer         { 3 }
+Max_Speed        { 96.75 }
+Specials         { ICEEngine_Tech CargoTech }
+Left_Side
+  Armor            { 13 }
+  Internals        { 2 }
+Right_Side
+  Armor            { 13 }
+  Internals        { 2 }
+Front_Side
+  Armor            { 20 }
+  Internals        { 2 }
+    CRIT_1		  { IS.MachineGun - - }
+    CRIT_2		  { IS.MachineGun - - }
+    CRIT_3		  { Ammo_IS.MachineGun 100 Hotload - }
+Aft_Side
+  Armor            { 10 }
+  Internals        { 2 }

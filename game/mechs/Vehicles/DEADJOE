@@ -1,0 +1,12 @@
+
+*** Modified files in JOE when it aborted on Sat Nov  4 12:31:35 2000
+*** JOE was aborted because the terminal closed
+
+*** File '(Unnamed)'
+Error1 = "MyError" 
+Error2 = "My"+"Error" 
+try: raise "My"+"Error" 
+except Error1: print "Error 1" 
+except Error2: print "Error 2" 
+except "My"+"Error": print "My + Error" 
+except: print "Not Caught" 

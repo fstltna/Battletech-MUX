@@ -1,0 +1,32 @@
+Name             { Morningstar }
+Reference        { Morningstar-L }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 60 }
+Comment          { Saved by: Spectre(#4628) at Thu Jul 11 08:11:38 2002 }
+Computer         { 4 }
+Radio            { 4 }
+Mech_BV          { 601 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
+Max_Speed        { 86.00 }
+Specials         { XLEngine_Tech }
+Left_Side
+  Armor            { 29 }
+  Internals        { 6 }
+Right_Side
+  Armor            { 29 }
+  Internals        { 6 }
+Front_Side
+  Armor            { 43 }
+  Internals        { 6 }
+    CRIT_1		  { IS.LargeLaser - - 3 }
+Aft_Side
+  Armor            { 19 }
+  Internals        { 6 }
+    CRIT_1-2		  { Ammo_IS.AC/10 10 - - }
+    CRIT_3		  { TargetingComputer - - 0 }
+Turret
+  Armor            { 24 }
+  Internals        { 6 }
+    CRIT_1		  { IS.AC/10 - - 3 }

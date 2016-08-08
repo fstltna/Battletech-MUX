@@ -1,0 +1,23 @@
+Name             { Ferret }
+Reference        { Ferret-A }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 5 }
+Max_Speed        { 247.25 }
+Left_Side
+  Armor            { 5 }
+  Internals        { 1 }
+Right_Side
+  Armor            { 5 }
+  Internals        { 1 }
+Front_Side
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+    CRIT_2		  { Ammo_IS.MachineGun 200 - - }
+Aft_Side
+  Armor            { 6 }
+  Internals        { 1 }
+Rotor
+  Armor            { 2 }
+  Internals        { 1 }

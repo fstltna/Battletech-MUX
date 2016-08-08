@@ -1,0 +1,27 @@
+Name             { Karnov }
+Reference        { PeregrineVTOL }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 30 }
+Max_Speed        { 193.50 }
+Left_Side
+  Armor            { 2 }
+  Internals        { 3 }
+    CRIT_1		  { IS.SRM-4 - - 3 }
+Right_Side
+  Armor            { 2 }
+  Internals        { 3 }
+    CRIT_1		  { IS.SRM-4 - - 3 }
+Front_Side
+  Armor            { 2 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MachineGun - - 0 }
+    CRIT_2		  { IS.MachineGun - - 0 }
+    CRIT_3		  { Ammo_IS.MachineGun 200 - - }
+    CRIT_4		  { Ammo_IS.SRM-4 25 - - }
+Aft_Side
+  Armor            { 1 }
+  Internals        { 3 }
+Rotor
+  Armor            { 1 }
+  Internals        { 3 }

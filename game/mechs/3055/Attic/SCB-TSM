@@ -1,0 +1,80 @@
+Name             { Scarabus }
+Reference        { SCB-TSM }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 30 }
+Computer         { 4 }
+Radio            { 4 }
+Max_Speed        { 161.25 }
+Specials         { TripleMyomerTech ECM }
+Left_Arm
+  Armor            { 9 }
+  Internals        { 5 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3-5		  { FerroFibrous - - }
+    CRIT_6-8		  { EndoSteel - - }
+    CRIT_9		  { IS.MediumLaser - - }
+    CRIT_10		  { IS.MediumLaser - - }
+    CRIT_11		  { IS.SmallLaser - - }
+    CRIT_12		  { IS.SmallLaser - - }
+Right_Arm
+  Armor            { 9 }
+  Internals        { 5 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { FerroFibrous - - }
+    CRIT_7-10		  { EndoSteel - - }
+    CRIT_11-12		  { Axe - - }
+Left_Torso
+  Armor            { 10 }
+  Internals        { 7 }
+  Rear             { 4 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-5		  { FerroFibrous - - }
+    CRIT_6-8		  { EndoSteel - - }
+    CRIT_9-11		  { FerroFibrous - - }
+    CRIT_12		  { TripleStrengthMyomer - - }
+Right_Torso
+  Armor            { 10 }
+  Internals        { 7 }
+  Rear             { 4 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-6		  { FerroFibrous - - }
+    CRIT_7-10		  { EndoSteel - - }
+    CRIT_11		  { FerroFibrous - - }
+    CRIT_12		  { TripleStrengthMyomer - - }
+Center_Torso
+  Armor            { 12 }
+  Internals        { 10 }
+  Rear             { 6 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+    CRIT_11-12		  { Ecm - - }
+Left_Leg
+  Armor            { 13 }
+  Internals        { 7 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { TripleStrengthMyomer - - }
+Right_Leg
+  Armor            { 13 }
+  Internals        { 7 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { TripleStrengthMyomer - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

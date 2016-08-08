@@ -1,0 +1,81 @@
+Name             { No-Dachi }
+Reference        { NDA-1K }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 70 }
+Radio            { 4 }
+Computer         { 4 }
+Heat_Sinks       { 20 }
+Max_Speed        { 86.00 }
+Specials         { DoubleHS }
+Left_Arm
+  Armor            { 20 }
+  Internals        { 11 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-6		  { IS.ERPPC - - }
+    CRIT_7		  { IS.SRM-2 - - }
+    CRIT_8		  { Ammo_IS.SRM-2 50 - - }
+    CRIT_10-12		  { EndoSteel - - }
+Right_Arm
+  Armor            { 20 }
+  Internals        { 11 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-9		  { Sword - - }
+    CRIT_10-12		  { EndoSteel - - }
+Left_Torso
+  Armor            { 22 }
+  Internals        { 15 }
+  Rear             { 8 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-6		  { IS.MRM-20 - - }
+    CRIT_7		  { Ammo_IS.MRM-20 12 - - }
+    CRIT_8-9		  { EndoSteel - - }
+    CRIT_10-12		  { TripleStrengthMyomer - - }
+Right_Torso
+  Armor            { 22 }
+  Internals        { 15 }
+  Rear             { 8 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-6		  { IS.MRM-20 - - }
+    CRIT_7		  { Ammo_IS.MRM-20 12 - - }
+    CRIT_8-9		  { EndoSteel - - }
+    CRIT_10-12		  { TripleStrengthMyomer - - }
+Center_Torso
+  Armor            { 29 }
+  Internals        { 22 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+    CRIT_11		  { IS.SRM-4 - - }
+    CRIT_12		  { Ammo_IS.SRM-4 25 - - }
+Left_Leg
+  Armor            { 22 }
+  Internals        { 15 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { EndoSteel - - }
+Right_Leg
+  Armor            { 22 }
+  Internals        { 15 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { EndoSteel - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_4		  { IS.MediumLaser - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

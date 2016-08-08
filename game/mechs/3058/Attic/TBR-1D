@@ -1,0 +1,85 @@
+Name             { Thunderbird }
+Reference        { TBR-1D }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 55 }
+Radio            { 4 }
+Tac_Range        { 0 }
+LRS_Range        { 0 }
+Scan_Range       { 0 }
+Computer         { 4 }
+Heat_Sinks       { 22 }
+Max_Speed        { 86.00 }
+Jump_Speed       { 53.75 }
+Specials         { DoubleHS }
+Left_Arm
+  Armor            { 16 }
+  Internals        { 9 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { IS.ERLargeLaser - - }
+    CRIT_9-12		  { EndoSteel - - }
+Right_Arm
+  Armor            { 16 }
+  Internals        { 9 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_9-12		  { EndoSteel - - }
+Left_Torso
+  Armor            { 18 }
+  Internals        { 13 }
+  Rear             { 8 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4		  { IS.StreakSRM-2 - - }
+    CRIT_5		  { IS.StreakSRM-2 - - }
+    CRIT_6		  { Ammo_IS.StreakSRM-2 50 - - }
+    CRIT_7		  { Ammo_IS.LRM-20 6 Artemis/Mine - }
+    CRIT_8-11		  { EndoSteel - - }
+    CRIT_12		  { Case - - }
+Right_Torso
+  Armor            { 18 }
+  Internals        { 13 }
+  Rear             { 8 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-8		  { IS.LRM-20 - - }
+    CRIT_9		  { ArtemisIV - - }
+    CRIT_10-11		  { Ammo_IS.LRM-20 6 Artemis/Mine - }
+    CRIT_12		  { Case - - }
+Center_Torso
+  Armor            { 25 }
+  Internals        { 18 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+    CRIT_11		  { JumpJet - - }
+    CRIT_12		  { EndoSteel - - }
+Left_Leg
+  Armor            { 24 }
+  Internals        { 13 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { JumpJet - - }
+Right_Leg
+  Armor            { 24 }
+  Internals        { 13 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { JumpJet - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_4		  { EndoSteel - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

@@ -1,0 +1,13 @@
+   _______                              __          _______ _______ ___ ___ 
+  |    ___|.--.--.---.-.--------.-----.|  |.-----. |   |   |   |   |   |   |
+  |    ___||_   _|  _  |        |  _  ||  ||  -__| |       |   |   |-     -|
+  |_______||__.__|___._|__|__|__|   __||__||_____| |__|_|__|_______|___|___|
+                              |__|                                        
+  --------------------------------------------------------------------------
+  connect <name> <password>                        Connect to the MUX
+  connect "<full name>" <password>                 Connect to the MUX
+  create <name> <password> <e-mail>                Create a new character
+  create "<full name>" <password> <e-mail>         Create a character
+  WHO                                              Display connected players
+  QUIT                                             Disconnect from the MUX
+  --------------------------------------------------------------------------

@@ -1,0 +1,34 @@
+Name             { Pinto }
+Reference        { Pinto }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 30 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:46:34 2000 }
+Mech_BV          { 980 }
+Cargo_Space      { 1024 }
+Max_Speed        { 161.25 }
+Specials         { CargoTech }
+Left_Side
+  Armor            { 14 }
+  Internals        { 3 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Right_Side
+  Armor            { 14 }
+  Internals        { 3 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Front_Side
+  Armor            { 20 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MediumLaser - - 3 }
+    CRIT_3		  { IS.MediumLaser - - 3 }
+    CRIT_4		  { IS.LRM-5 - - 3 }
+    CRIT_5		  { ArtemisIV - - 3 }
+    CRIT_6		  { Ammo_IS.LRM-5 24 Artemis/Mine - }
+    CRIT_7		  { BeagleProbe - - 3 }
+Aft_Side
+  Armor            { 14 }
+  Internals        { 3 }
+Rotor
+  Armor            { 2 }
+  Internals        { 3 }

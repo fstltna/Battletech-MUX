@@ -1,0 +1,57 @@
+#
+# $Id: mux.general 1.2 02/01/28 19:55:22-00:00 twouters@ $
+#
+# Author: Markus Stenberg <fingon@iki.fi>
+#
+#  Copyright (c) 1997 Markus Stenberg
+#  Copyright (c) 1998-2002 Thomas Wouters
+#  Copyright (c) 2000-2002 Cord Awtry
+#       All rights reserved
+#
+#
+
+
+#CC             = cc
+CC		= gcc
+#CC		= egcc
+
+MAKEDEPEND	= makedepend                            # Standard
+MAKEDEPENDFIX   = bin/makedepcleaner.pl			# Not so standard :)
+PROTOMAKER	= bin/protomaker.sh
+
+# If you lack MAKEDEPENDFIX, just set it as 'cat'
+
+# NOTE: You need to update 'main' makefile's GNUMAKE variable as well.
+
+GNUMAKE		= make
+
+MYFIFOOBJ	= ../misc/myfifo.o
+EVENTOBJ	= ../event/event.o
+
+# Available flags: BT_ENABLED (=> BattleTech hcode goes in)
+
+MUXCFLAGS	= -g -O2 -Wall -Wno-unused -DMYFIFO -DMEMORY_BASED -DBT_ENABLED -DHUDINFO_SUPPORT
+CFLAGS		= $(MUXCFLAGS)
+
+%.do:   %
+	cd $< ; $(GNUMAKE) ; cd ..
+
+%.dep:  %
+	cd $< ; $(GNUMAKE) depend ; cd ..
+
+%.cle:  %
+	cd $< ; $(GNUMAKE) clean ; cd ..
+
+.depend:
+	rm -f .depend
+	touch .depend
+	$(MAKEDEPEND) -f .depend $(INCLUDES) -- $(CFLAGS) -- $(wildcard *.c)
+	$(MAKEDEPENDFIX) < .depend > .depend~
+	mv .depend~ .depend
+
+depend: .depend
+
+protos:
+	$(PROTOMAKER) "$(INCLUDES)" $(wildcard *.c)
+
+include .depend

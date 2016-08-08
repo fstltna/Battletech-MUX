@@ -1,0 +1,22 @@
+Name		 { Maultier } 
+Reference        { Maultier }
+Type             { Vehicle }
+Move_Type        { Hover }
+Tons             { 15 }
+Mech_BV          { 115 }
+Max_Speed        { 150.50 }
+Specials         { CargoTech ICEEngine_Tech }
+Left_Side
+  Armor            { 10 }
+  Internals        { 2 }
+Right_Side
+  Armor            { 10 }
+  Internals        { 2 }
+Front_Side
+  Armor            { 15 }
+  Internals        { 2 }
+    CRIT_1		  { IS.StreakSRM-2 - - }
+    CRIT_2		  { Ammo_IS.StreakSRM-2 50 - - }
+Aft_Side
+  Armor            { 10 }
+  Internals        { 2 }

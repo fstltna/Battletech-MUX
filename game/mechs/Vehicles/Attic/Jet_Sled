@@ -1,0 +1,23 @@
+Name             { Jet_Sled }
+Reference        { Jet_Sled }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 3 }
+Computer         { 3 }
+Max_Speed        { 129.00 }
+Specials         { BeagleProbe }
+Left_Side
+  Armor            { 2 }
+  Internals        { 1 }
+Right_Side
+  Armor            { 2 }
+  Internals        { 1 }
+Front_Side
+  Armor            { 3 }
+  Internals        { 1 }
+Aft_Side
+  Armor            { 1 }
+  Internals        { 1 }
+Rotor
+  Armor            { 2 }
+  Internals        { 2 }

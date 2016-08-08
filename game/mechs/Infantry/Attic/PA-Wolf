@@ -1,0 +1,13 @@
+Name             { PowerArmor }
+Reference        { PA-Wolf }
+Type             { Battlesuit }
+Move_Type        { Biped }
+Tons             { 1 }
+Max_Speed        { 86.00 }
+Jump_Speed       { 32.25 }
+Specials         { FWLStealth_Tech }
+Suit_1
+  Armor            { 15 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - 3 }
+    CRIT_2		  { IS.SmallLaser - - 3 }

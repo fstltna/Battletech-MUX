@@ -1,0 +1,23 @@
+Name             { SalvageVTOL }
+Reference        { SalvageVTOL }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 100 }
+Computer         { 3 }
+Max_Speed        { 182.75 }
+Specials         { SalvageTech }
+Left_Side
+  Armor            { 20 }
+  Internals        { 10 }
+Right_Side
+  Armor            { 20 }
+  Internals        { 10 }
+Front_Side
+  Armor            { 20 }
+  Internals        { 10 }
+Aft_Side
+  Armor            { 20 }
+  Internals        { 10 }
+Rotor
+  Armor            { 20 }
+  Internals        { 10 }

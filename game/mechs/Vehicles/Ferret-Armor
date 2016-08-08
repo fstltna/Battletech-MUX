@@ -1,0 +1,28 @@
+Name             { Ferret }
+Reference        { Ferret-Armor }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 5 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:48:51 2000 }
+Computer         { 4 }
+Mech_BV          { 54 }
+Cargo_Space      { 256 }
+Max_Speed        { 247.25 }
+Specials         { ICEEngine_Tech }
+Left_Side
+  Armor            { 6 }
+  Internals        { 1 }
+Right_Side
+  Armor            { 6 }
+  Internals        { 1 }
+Front_Side
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+    CRIT_2		  { Ammo_IS.MachineGun 100 Hotload - }
+Aft_Side
+  Armor            { 4 }
+  Internals        { 1 }
+Rotor
+  Armor            { 2 }
+  Internals        { 1 }

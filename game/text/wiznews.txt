@@ -1,0 +1,637 @@
+& help
+	Wiznews has some odd stuff that's related to building etc.
+	Wiznews is graciously donated by the 3030MUX Wizards.
+
+		Present topics available:
+
+Hangars		Explanation of maplink vs building concept and stuff,
+		how to make buildings/hangars.
+
+Parts		Commands for part manipulation.
+
+Reference	xcodevalue references -- useful!
+
+Autopilot	Explanation of the AI code
+
+&hangars
+
+Hangars are entrances/exits off the 'main' map. They can themselves contain
+other entrances/exits, at will.
+
+Dropships are special types of hangars, that determine which map they link
+themselves to, automatically.
+
+To add a hangar to a map, create a new mapobject that will be the hangar
+itself. Load the map you want to use on it.
+
+Set the right attributes on the new mapobject, where applicable:
+
+BUILDING LOCK: if you wish the building to be enterably only by a few, or
+under special conditions, set the mapobjects enterlock (@lock/enter). The
+lock is evaluated more often than just when someone tries to enter (see
+below) so it is unwise to make it have side-effects.
+
+BUILDING CF: if you want the building to have something other than a default
+CF, set the CF using
+
+	setmapvalue(<dbref>, cf, <cf>)
+	setmapvalue(<dbref>, maxcf, <maxcf>)
+
+where 'cf' is the current cf, and 'maxcf' is the maximum cf for that
+building. Buildings will regenerate part of their cf every hour, until they
+reach maxcf. If a building is locked, and the mapflags don't protect it
+against breakins (see below), the building is enterably by anyone once its
+cf is brought to less than half of its max cf. The lock is automatically
+re-activated when cf is regenerated past half of max cf again.
+
+BUILDING FLAGS: if you want the map to be CS, or want it to be hidden, set
+the flags accordingly, using
+
+	setmapvalue(<dbref>, buildflag, <bitvector>)
+
+where bitvector is a number composed of the following numbers:
+
+	1: the building is externally CS (can't be damaged from outside)
+	2: the hangar is CS (everything inside it is CS)
+	4: the building is 'silent': doesn't show when you step on it,
+	   unless you pass a Perception roll.
+	8: the building is secure against breakins, even if you bring down
+	   cf to less than half of max cf.
+	16: the building is hidden (won't show on contacts) unless you pass
+	    the lock.
+
+BUILDING ENTRANCES: set the 'BUILDENTRANCE' attribute on the hangar
+mapobject in the form of "x,y x,y x,y x,y", which are the location 'mechs
+are placed after entering respectively from north, east, south and west.
+They can all be set to the same value.
+
+BUILDING PLACEMENT: on the hangar mapobject, set the 'BUILDCOORD' attribute
+to the x,y location of the building itself, on the main map.
+
+STOCKPILE PLACEMENT: if you want to force units to go to a specific hex
+before being able to use 'load'/'unload' commands, set the MECHSKILLS
+attribute on the hangar mapobject to "x y" (note, a space, no comma). If you
+want the stockpile to be visible, so that anyone trying to load/unload will
+get a message 'move to "x,y" and try again', make the MECHSKILLS attribute
+"x y 1" instead.
+
+BUILDING LINKS: On the map you want to link the hangar map to, set the
+BUILDLINKS attribute to be a list of dbrefs of all buildings/hangars on the
+map, omitting the # from the dbrefs. 
+
+Finally, to activate all links, go to the topmost map (the one all the
+buildings link to) and type 'updatelinks'.
+
+For Dropships, do all of the above except setting the BUILDLINK attribute
+and typing 'updatelinks'. Instead, make sure your Dropship template includes
+'DSMechDoor' criticals, at least one in each section that you want to have a
+map attached to, and type '@createbays <list of dbrefs>' on the 'bridge' of
+the Dropship. This acts exactly like the BUILDLINKS attribute, and the act
+of landing/taking off has a similar effect as the 'updatelinks' command on
+the map object.
+
+&parts
+
+        addstuff <shortname, name or name w/ wildcards> <count>
+
+Adds number of selected stuff(s) to the place you are at the moment.
+
+        removestuff <shortname, name or name w/ wildcards> <count>
+
+Removes number of selected stuff(s) from the place you are at the
+moment. (doesn't go below 0)
+
+        clearstuff 
+
+Removes all econ stuff from your location... duh.
+
+        loadcargo <shortname, name or name w/ wildcards> <count>
+
+Loads specified stuff(s) onboard, if less than selected available, loads
+those. (note: 'loadcargo * 999' propably loads about everything)
+
+        unloadcargo <shortname, name or name w/ wildcards> <count>
+
+The opposite of loadcargo (note: both of these work only in proper bays, 
+and mech must not be shutdown)
+
+        manifest/stores (optional wildcard specifier) 
+
+Stores shows stuff in hangar (mech/hangar command).
+
+Manifest shows list in mech. 'manifest Martell.*' would list all Martell
+parts.
+
+        listforms
+
+Lists all possible combinations of objects available (leftmost column
+= short form, can't be abbreviated. right = as things are saved, middle =
+wildcard'able names)
+
+&reference
+
+Quick-reference guide to various xcodevalues (for MECH and MAP objects.)
+
+	status		critstatus          
+        admin options   btfunctions
+
+See wiznews reference <subtopic>
+
+&reference status
+
+The meaning of the status string, by letter. Note that you need to specify
+the entire string when setting with setxcodevalue().
+
+----------------------------------------------------------------------------
+a = VTOL/Aero is 'landed'. Unused for 'mechs currently.
+b = torso twisted right 60 degrees.
+c = torso twisted left 60 degrees.
+d = unit is started.
+e = unit is in partial cover. (used internally, mostly. at least one of the
+    people who locked this unit has partial cover on it.)
+f = unit is destroyed.
+g = unit is jumping.
+h = unit is fallen. (skirt/track destroyed for tanks)
+i = unit is attempting DFA.
+j = unused at this time
+k = 'mechs arms are flipped.
+l = unit has AMS and it's activated.
+m = unused at this time
+n = pilot is unconscious.
+o = unit is being towed.
+p = unit has locked a unit ("We mean business")
+q = unit has locked a building (<x> <y> b)
+r = unit has locked a hex (<x> <y>)
+s = unit has locked a hex for ignition (<x> <y> i)
+t = unit has locked a hex for clearing (<x> <y> c)
+u = unit has MASC enabled.
+v = unit is blinded. (la sensors near DS takeoff, for instance)
+w = unit is COMBAT_SAFE.
+x = autocon sees it even when the unit is shut down
+y = unit has just fired.
+z = unused at this time
+A = unit is hulldown
+B = units map is under special rules (one of the following:)
+C = abnormal gravity (not 1G)
+D = abnormal temperature (enough to adjust heatsinks.) between -30 and +50
+    degrees celcius is considered normal
+E = unit is in vacuum.
+
+----------------------------------------------------------------------------
+
+&reference specialsstatus
+
+The meaning of the specialsstatus string, by letter. Note that you need to
+specify the entire string when setting with setxcodevalue(). Also note how
+the name gets cut off in @viewxcode, into 'specialsstat'.
+
+----------------------------------------------------------------------------
+a = Guardian ECM enabled
+b = Guardian ECCM enabled (counter-ECM)
+c = under influence of (enemy) Guardian ECM
+d = protected by Guardian ECCM
+e = ECM 'countered' by enemy ECCM
+f = unit's searchlight is lit
+g = unit's stealtharmor is active
+h = unit's null-signature-system is active
+i = Angel ECM enabled
+j = Angel ECCM enabled
+k = protected by Angel ECM
+l = under influence of (enemy) Angel ECM
+m = Personal ECM enabled
+n = Personal ECCM enabled
+o = The turret of this unit 'autotracks' the target.
+
+----------------------------------------------------------------------------
+
+&reference admin options
+ 
+These are the btech specific admin options, and sample values.
+ 
+        mudconf.btech_engine = 1;
+        mudconf.btech_stackpole = 1;
+        mudconf.phys_use_pskill = 1;
+        mudconf.btech_erange = 1;
+        mudconf.btech_dig_only_fs = 0;
+        mudconf.btech_digbonus = 3;
+        mudconf.btech_vcrit = 2;
+        mudconf.btech_dynspeed = 1;
+        mudconf.btech_ic = 1;
+        mudconf.btech_parts = 1;
+        mudconf.btech_slowdown = 2;
+        mudconf.btech_fasaturn = 1;
+        mudconf.btech_fasacrit = 0;
+        mudconf.btech_tankfriendly = 0;
+        mudconf.btech_newterrain = 0;
+        mudconf.btech_skidcliff = 0;
+        mudconf.btech_newcharge = 0;
+        mudconf.btech_xploss = 666;
+ 
+And here are the xp configuration options:
+ 
+        btech_oldxpsystem : if non-zero it uses the old xp system.
+        btech_xp_modifier : This modifies the xp by btech_xp_modifier / 100.
+        btech_xp_bthmod : This turns on BTH mods on xp same way as in old code.
+        btech_xp_missilemod : This modifies the xp for missile weapons by 
+        btech_xp_missilemod / 100
+        btech_xp_ammomod : sama as btech_xp_ammomod for ammo based weapons
+        btech_defaultweapdam : This is for additional modification of xp
+            distribution, could be left 1, if larger than 1 then the damage 
+            done by the weapon used is also used in the equation
+        btech_xp_vrtmod : not used if 0, else it will use 
+            sqrt(vrt of weapon/30) to modify the xp.
+        btech_defaultweapbv : default weapon BattleValue used as base, 
+            should be good if set around 50, but subject to personal 
+            opinions and xp rate.
+ 
+&reference critstatus
+ 
+critstatus is a string similar to status. Not all of them make sense in
+scode.
+ 
+a = Gyro destroyed.
+b = Sensors damaged.
+c = TAG destroyed.
+d = Hiding.
+e = Gyro dented.
+f = Hip crit.
+g = LifeSupport gone.
+h = LEG_DESTROYED ((at least) one leg gone)
+h = Angel ECM destroyed
+i = C3I destroyed
+j = NSS destroyed
+k = Searchlight destroyed.
+l = searchlight on.
+m = load_ok (speed has been recalculated wrt cargo loaded.)
+n = oweight_ok (speed has been recaculated wrt own weight.)
+o = speed_ok (speed has been fully recalculated.)
+p = unit has Heat cutoff enabled
+q = Unit is towable even when !CS
+r = Hip completely destroyed
+s = Target Computer destroyed
+t = C3 destroyed
+u = Guardian ECM destroyed
+v = Beagle destroyed.
+w = Spread with Inferno burn-gel.
+x = PCombat initialization done.
+y = Spinning. (Crashing aeros ?)
+z = Clairvoyant. (see everything on map)
+A = Invisible.
+B = changed heading. (desired heading != actual heading.)
+C = Observatoric (can't interact)
+D = Bloodhound Active Probe destroyed.
+ 
+&reference tankcritstatus
+ 
+tankcritstatus is a string similar to status. Not all of them make sense in
+scode.
+ 
+a = turret locked
+b = turret jammed
+c = Dug in
+d = Digging in
+e = Crew stunned
+f = Tail rotor destroyed (in VTOLs)
+
+&reference btfunctions
+ 
+The following functions are listed. See 'reference <function>' for more
+information about each function:
+ 
+  btdesignex            btgetcharvalue          btmakemechs
+  btmapelev             btmapterr               btsetcharvalue
+  btgetxcodevalue       btsetxcodevalue         btstores
+  btunderrepair		btdamages		btcritstatus
+  btcritref		btarmorstatus		btarmorref
+  btsetarmorstatus	btweaponstatus		btweaponref
+  btthreshhold		btdamagemech
+ 
+&reference btdesignex()
+--------------------------------------------------------------------------
+btdesignex(ref)
+return 1 if mechref 'ref' exists, 0 otherwise.
+ 
+&reference btgetcharvalue()
+--------------------------------------------------------------------------
+btgetcharvalue(char, what, how)
+ 
+get character value. what is an attribute (Build, Int, etc), a skill
+(Gunnery-Battlemech etc) or stuff like bruise, sixth_sense, etc. 'how' is
+how you want to see it: 0 for 'skill level', 1 for BTH, 2 for XP.
+ 
+&reference btmakemechs()
+--------------------------------------------------------------------------
+btmakemechs(faction, tons, types, opttons, maxvar)
+Create a mechseed of 'mechs based on hcode availability information. Not
+terribly useful, currently.
+ 
+&reference btmapelev()
+--------------------------------------------------------------------------
+btmapelev(map, x, y)
+return map elevation of map's 'x','y'.
+ 
+&reference btmapterr()
+--------------------------------------------------------------------------
+btmapterr(map, x, y)
+return terrain char of map's 'x','y'.
+ 
+&reference btsetcharvalue()
+--------------------------------------------------------------------------
+btsetcharvalue(char, what, to, how)
+ 
+set character value 'what' to 'to'. 'char', 'who' and 'what' are the same as
+in btgetcharvalue(). 'how' determines what 'to' sets: 0 sets absolute skill
+level, 1 sets BTH (sets skill level to match BTH, that is), 2 sets absolute
+XP, and 3 adds 'to' to current XP. (also takes negative XP.)
+ 
+&reference btgetxcodevalue()
+--------------------------------------------------------------------------
+btgetxcodevalue(object, xcodevalue)
+Get an XCODE object's xcode value. Like @viewxcode.
+ 
+&reference btsetxcodevalue()
+--------------------------------------------------------------------------
+btsetxcodevalue(object, xcodevalue, to)
+Set an XCODE object's xcode value to 'to'. like @setxcode.
+ 
+&reference btstores()
+--------------------------------------------------------------------------
+btstores(map, part)
+Return number of 'part's that 'map' holds.
+ 
+&reference btunderrepair()
+--------------------------------------------------------------------------
+btunderrepair(mech)
+return 1 if mech 'mech' is under repair, 0 otherwise.
+ 
+&reference btdamages()
+--------------------------------------------------------------------------
+btdamages(mech)
+ 
+return damages-string of 'mech. Damages string is a comma seperated list of
+damage, each in this form:
+ 
+ <number> | <location> | <typenum> | <data> | <fixing>
+ 
+<number> is just a serial number, for use with 'fix'
+<location> is the short string representation of the location (like 'RA')
+<typenum> is what needs to be done:
+  0 = reattach section
+  1 = repair part
+  2 = repair temporary glitch
+  3 = repairgun
+  4 = reload 
+  5 = fixarmor
+  6 = fixarmor (rear)
+  7 = fixinternals
+  8 = detach section
+  9 = scrap part
+  10 = scrap gun
+  11 = unload
+  12 = reseal
+ 
+<data> is some extra data for this repair, or '-' if there isn't extra data. 
+  - For repair part, repairgun, scrappart and scrapgun this is the (first)
+    critical that needs fixing/removing.
+  - For fixarmor, fixarmor(rear) and fixinternal it is the number of points
+    to fix.
+  - for reload and rnload this is the number of rounds that need
+    re/unloading.
+ 
+<fixing> is 1 if it is under repair already, or 0 otherwise.
+ 
+&reference btcritstatus()
+--------------------------------------------------------------------------
+btcritstatus(mech, location)
+ 
+return critstatus-string for 'mech's 'location'. A critstatus-string is a
+comma seperated list of crits, each in this form:
+ 
+ <critslot> | <crit name> | <status> | <type>
+ 
+<critslot> is the number of the crit
+<crit name> is the crit name, like in 'critstatus'
+<status> is -1 for a destroyed crit, 0 for a functional one or 1 for a
+           glitched one. 
+<type> is 0 for a general crit, 1 for a weapon, 2 for ammo, 3 for an
+           actuator, 4 for cargo, and 5 for an empty crit.
+ 
+&reference btcritref()
+--------------------------------------------------------------------------
+btcritref(ref, location)
+Exactly like btcritstats(), but reads off a reference instead of a 'mech.
+ 
+&reference btarmorstatus()
+--------------------------------------------------------------------------
+btarmorstatus(mech, location)
+return armor status of 'mech's 'location'. The return value is in the form
+ 
+<armor>/<maxarmor> | <internals>/<maxinternals> | <reararmor>/<maxreararmor>
+ 
+&reference btarmorref()
+--------------------------------------------------------------------------
+btarmorref(REF, location)
+Exactly like btarmorstatus(), but reads off a reference instead of a 'mech.
+ 
+&reference btsetarmorstatus()
+--------------------------------------------------------------------------
+btsetarmorstatus(mech, location, what, to)
+Set 'mech's 'location's armor status. 'what' is 0 for front armor, 1 for
+internals and 2 for rear armor. 'to' is the value to set it to.
+ 
+&reference btweaponstatus()
+--------------------------------------------------------------------------
+btweaponstatus(mech[, location])
+ 
+return a list of weapons in 'mech's 'location'.  If 'location' is not given
+(not an empty string, but not supplied), returns a list of weapons on the
+entire 'mech instead.
+ 
+The list is a comma seperated list of weapon readouts, each in this form:
+ 
+   <weapon number> | <weapon (long) name> | <number of crits> |
+   <part quality> | <weapon recycle time> | <recycle time left> |
+   <weapon type> | <weapon status>
+ 
+<weapon number> is the number of the weapon. If sect is -1, it's also the
+    weapon number in 'status'
+<weapon name> is the long name for the weapon, 'agra.mediumlaser' and such.
+<weapon type> is the type of weapon:
+ 0 is energy/beam (lasers, PPCs) weapon
+ 1 is missile (LRM/SRM) weapon
+ 2 is artillery weapon
+ 3 is ballistic weapon (Autocannons, MG)
+ 4 is a handweapon (for Mechwarriors)
+<weapon status> is the status:
+ 0 is operational
+ 1 is glitched
+ 2 is destroyed/flooded
+ 
+&reference btweaponref()
+--------------------------------------------------------------------------
+btweaponref(ref[, location])
+Exactly like btweaponstatus(), but reeds off a ref instead of a 'mech.
+ 
+&reference btthreshhold()
+--------------------------------------------------------------------------
+btthreshhold(skill)
+return the XP threshhold to go from 4+ to 3+ for skill 'skill'.
+ 
+&reference btdamagemech()
+--------------------------------------------------------------------------
+btdamagemech(mech, amount, clustersize, direction, crit, mechmsg, losmsg)
+ 
+Do <amount> damage to 'mech, in clusters of <clustersize>, from a bearing of
+<direction>. if <crit> is true, try to force a critical hit (might not
+succeed.) 'mechmsg' is the message given to the hit 'mech (as-is). 'losmsg'
+is the message to generate for viewers who are in LoS of the 'mech; it is
+prepended by the hit 'mech name. 'direction' can be:
+ 
+For type:  MECH         TANK/VTOL     AERO        BSUIT    DROPSHIP
+0          left arm     left side     nose        suit 1   right front side
+1          right arm    right side    left wing   suit 2   left front side
+2          left torso   front side    right wing  suit 3   left rear side
+3          right torso  aft side      fuselage    suit 4   right rear side
+4          Cent. torso  turret        cockpit     suit 5   aft
+5          left leg     rotor         engine      suit 6   nose
+6          right leg    -             -           suit 7   -
+7          head         -             -           suit 8   -
+ 
+For directions from 8 through 15, the same table is used, but the hit is
+from behind (only makes sense for some types.)
+  
+For directions from 16 to 21, the direction is used as a rough direction,
+and a random hit-location is used inside that direction:
+16 - back
+17 - leftside
+18 - rightside
+19 - front side (rear)
+20 - back side (rear)
+21 - left side (rear)
+  
+I forgot the rationale for this particular mode. Feel free to ignore it, or
+experiment with it. I might sanify it, though, so let me (Focus@3030) know
+if you plan on using it.
+ 
+& autopilot
+ 
+The current AI code is incomplete, buggy, and possibly crashy. Nevertheless,
+it can be a very cool toy. Here is how it works:
+ 
+The XTYPE of all AI objects is 'AUTOPILOT'. They pretend to be 'Mech
+pilots, so you should place them inside the 'Mech they are supposed to
+control. Though autopilots can theoretically control any type of unit, they
+are currently only capable of handling ground units, and are oblivious of
+most tank rules. Autopilot objects should also have the correct privileges
+to start a 'Mech, you usually want them set INHERIT or their owner set
+INHERIT.
+ 
+Autopilots know two modes: program mode, and free command mode. See 'wiznews
+autopilot program mode' and 'wiznews autopilot command mode'.
+
+& autopilot program mode
+ 
+The autopilot 'program mode' is easier of the two modes, and the most
+straightforward: the AUTOPILOT xtype defines the commands 'ADDCOMMAND' to
+add a command to the program, and 'DELCOMMAND' to remove a command.
+'LISTCOMMANDS' lists the current program, 'JUMP' sets the program pointer to
+another instruction, 'ENGAGE' starts the program, and 'DISENGAGE' stops the
+program.
+ 
+The possible commands are:
+    goto <x> <y>: 	go to <x>,<y> (using 'smart' path-finding code)
+    dumbgoto <x> <y>:	go to <x>,<y> (using 'dumb' mode)
+    follow <id>:	keep following <id> around (using 'smart' mode)
+    dumbfollow <id>:	keep following <id> around (using 'dumb' mode)
+    leavebase <dir>:	leave hangar headed <dir>
+    wait 0 <secs>:	wait <secs> seconds
+    wait 1 <bla>:	wait for enemy contacts (argument unused)
+    speed <%>:		move at % of max speed
+    jump <progline>:	jump to chosen line in the program (not mech jump!)
+    startup:		startup
+    shutdown:		shutdown
+    autogun:		fire at will
+    stopgun:		hold fire
+    enterbase <dir>:	enterbase <dir>
+    load:		load up to half capacity from current bay
+    unload:		unload everthing
+ 
+These commands exist, but are currently unimplemented:
+    report
+    pickup
+    dropoff
+
+& autopilot command mode
+ 
+The autopilot 'free command mode' is slightly more tricky than program mode,
+but more flexible. Your AUTOPILOT object needs to have no program in it
+(DISENGAGE it, and then DELCOMMAND -1 to wipe the whole program) and be
+inside a 'mech with the A frequency set to a non-zero frequency. Then ENGAGE
+the emtpy autopilot and it will start listening on the A freq. You can give
+it commands by prefixing commands either with 'all' or the mechid of the
+Autopilot's 'mech. A 'mech will listen to all non-zero frequences that are
+set, but will only report on the 'A' freq.
+ 
+The commands that you can give in command mode are similar but not quite the
+same as the commands in program mode. You can also abbreviate most of them.
+A complete list can be found in 'wiznews autopilot commands'. Here is an
+example of an AI in action:
+ 
+(A:180) <Focus> all report
+(A:084) <PXH-3D/nb> Prone at 5, 5, headed 103
+(A:180) <Focus> nb stand
+(A:084) <PXH-3D/nb> Fine, standing up.
+Pheonix Hawk [nb] stands up!
+(A:180) <Focus> nb head 120
+(A:084) <PXH-3D/nb> Roger, roger, stopped and heading changed to 120.
+(A:180) <Focus> all goto 20 5
+(A:084) <PXH-3D/nb> Okay, okay, going to 20,5, happy now?
+ 
+A few notes about AI mode: it's not very stable. It might crash for weird
+reasons. Also, the pathfinding code is not very good, it hasn't been kept up
+to date in recent terrain/turn/speed rule changes. Pathfinding works in
+general, but stopping on the right place is practically impossible; use
+dgoto when getting close. AI also don't take stacking into account, and they
+fight dirty: they will attack MWs and take headshots whenever possible.
+ 
+& autopilot commands
+ 
+These commands can be used in free command mode. See 'wiznews autopilot
+program mode' for the commands to use in program mode. 
+ 
+command   abbrv  args		does:
+help      he	-		display list of available commands
+report    re	-		report on status and location
+ 
+goto      go	<x> <y>		go smartly to <x> <y>
+dgoto     dgo	<x> <y>		go dumbly to <x> <y>
+head      he	<dir>		stop and face <dir>
+rally     ra	<x> <y> %[dir%]	rallly smartly at <x> <y> %[and face <dir>%]
+drally    dr	<x> <y> %[dir%]	rallly dumbly at <x> <y> %[and face <dir>%]
+follow    fo	<id>		follow unit <id> smartly (can be enemy)
+dfollow   dfo	<id>		follow unit <id> dumbly
+position  pos   <b> <r>		for 'follow' and 'rally': position bearing
+				<b> range <r> from followed unit/rally.
+ 
+startup   star	-		startup
+shutdown  sh	-		shutdown
+enterbase en	%[dir%]		enterbase %[dir%] at this hex
+prone     pr	-		go prone
+stand     stan	-		standup
+stop      sto   -		stop
+ 
+freq      fr    <freq>		set A channel to <freq>
+chanfreq  chanf	<chan> <freq>	set <chan> channel to <freq>
+chanmode  chanm	<chan> <freq>	set <chan> channel mode to <mode>
+sensor    se	%[P S%]		Set sensors (or leave it to AI discretion)
+ 
+target    ta	<id>		target unit <id>
+notarget  nota	-		disable specific unit targetting
+nogun     nog	-		power down guns
+sweight   sw    <go> <fire>	Adjust move/fire choice weights
+cmode     cm    <mode> <range>	set contact mode and range
+ 
+'cmode' and 'sweight' require an additional explanation: cmode's 'mode' is
+either 0, 1 or 2 for timid/normal/aggressive mode, and 'range' is the range
+to maintain from all enemies. 'sweight' adjusts the internal balance between
+moving and firing.

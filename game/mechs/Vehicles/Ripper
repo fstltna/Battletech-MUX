@@ -1,0 +1,26 @@
+Name             { Ripper }
+Reference        { Ripper }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 10 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:33:26 2000 }
+Mech_BV          { 517 }
+Cargo_Space      { 2048 }
+Max_Speed        { 193.50 }
+Left_Side
+  Armor            { 5 }
+  Internals        { 1 }
+Right_Side
+  Armor            { 5 }
+  Internals        { 1 }
+Front_Side
+  Armor            { 10 }
+  Internals        { 1 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MediumLaser - - 3 }
+Aft_Side
+  Armor            { 5 }
+  Internals        { 1 }
+Rotor
+  Armor            { 2 }
+  Internals        { 1 }

@@ -1,0 +1,29 @@
+Name             { Partisan }
+Reference        { Partisan-58C }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 80 }
+Heat_Sinks       { 12 }
+Max_Speed        { 53.75 }
+Specials         { AntiAircraft }
+Left_Side
+  Armor            { 26 }
+  Internals        { 8 }
+Right_Side
+  Armor            { 26 }
+  Internals        { 8 }
+Front_Side
+  Armor            { 35 }
+  Internals        { 8 }
+    CRIT_1-2		  { C3Master - - 3 }
+Aft_Side
+  Armor            { 21 }
+  Internals        { 8 }
+Turret
+  Armor            { 35 }
+  Internals        { 8 }
+    CRIT_1		  { IS.LB10-XAC - - 3 }
+    CRIT_2		  { IS.LB10-XAC - - 3 }
+    CRIT_3-4		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_5		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_6-9		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }

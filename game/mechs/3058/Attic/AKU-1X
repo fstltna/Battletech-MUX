@@ -1,0 +1,79 @@
+Name             { Akuma }
+Reference        { AKU-1X }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 90 }
+Radio            { 4 }
+Radio            { 4 }
+Heat_Sinks       { 24 }
+Max_Speed        { 53.75 }
+Specials         { DoubleHS }
+Left_Arm
+  Armor            { 30 }
+  Internals        { 15 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-6		  { IS.ERPPC - - }
+    CRIT_7		  { IS.MediumPulseLaser - - }
+    CRIT_8		  { IS.StreakSRM-4 - - }
+    CRIT_9		  { Ammo_IS.StreakSRM-4 25 - - }
+    CRIT_10-12		  { HeatSink - - }
+Right_Arm
+  Armor            { 30 }
+  Internals        { 15 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5		  { IS.MediumLaser - - }
+    CRIT_8-12		  { EndoSteel - - }
+Left_Torso
+  Armor            { 28 }
+  Internals        { 19 }
+  Rear             { 10 }
+    CRIT_1-5		  { IS.MRM-30 - - }
+    CRIT_6-7		  { Ammo_IS.MRM-30 8 - - }
+    CRIT_8-12		  { EndoSteel - - }
+Right_Torso
+  Armor            { 28 }
+  Internals        { 19 }
+  Rear             { 10 }
+    CRIT_1-6		  { IS.LB10-XAC - - }
+    CRIT_7		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_8		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
+    CRIT_9		  { Ammo_IS.StreakSRM-6 15 - - }
+    CRIT_10-12		  { HeatSink - - }
+Center_Torso
+  Armor            { 43 }
+  Internals        { 29 }
+  Rear             { 15 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+    CRIT_11-12		  { IS.StreakSRM-6 - - }
+Left_Leg
+  Armor            { 38 }
+  Internals        { 19 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { EndoSteel - - }
+Right_Leg
+  Armor            { 38 }
+  Internals        { 19 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { EndoSteel - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_4		  { EndoSteel - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

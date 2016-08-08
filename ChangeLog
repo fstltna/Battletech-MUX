@@ -1,0 +1,441 @@
+btechmux 1.4.4:
+    (All changes by Focus unless noted otherwise)
+    - New MUX functionality:
+	* Don't show players set UNFINDABLE in the hardcoded WHO.
+	* Added 'opaque' and 'transparent' channel settings. opaque channels
+	  do not show people set UNFINDABLE on 'who', transparent channels
+	  do (like before.)
+	* Port the %cu colour code, for underline, from Stephen Dennis's
+	  TinyMUX2.
+	* Allow exits to be @teleported, since you can pick them up and drop
+	  them as well.
+	* Remove *ridiculous* filedescriptor caching code that wanted to use
+	  fd 0 for all file operations. It interferes with debugging tools,
+	  and it serves no use that I can imagine, other than not requiring
+	  open()s and close()s to match.
+
+    - New btech functionality:
+	* Mace code contributed by Brian Stamper.
+	* Show 'DUG IN' and 'DIGGING IN' on scan/status, contributed by Greg
+	  Taylor
+	* Supercharger code contributed by Brian Stamper
+	* Add new 'status' flag to MECH objects, 'j', which disallows
+	  movement without messing with the unit's speed (for EVs and such)
+	* Emit DS deaths, takeoffs, landings and map exit/enter events to the
+	  DSInfo channel, rather than the MechDebugInfo channel. This breaks
+	  scode that relies on it being on MechDebugInfo!
+	* Have searchlights illuminate terrain on DARK maps properly
+	* Have clairvoyant units always see all terrain on DARK maps
+	* Treat seismic contacts as enemy contacts always
+	* ATTACHCABLES, allow units with hands to tow if a unit with hands
+	  (or a disembarked MechWarrior) attaches cables
+	* Break towing cables on a rear hit on non-SALVAGE_TECH units
+	* On DARK maps and los-tacticals, have fires and jellied units
+	  illuminate their surrounding hexes, instead of blocking LoS.
+	* Calculate weight in 1024th-tons instead of 100th-tons, making Clan
+	  MachineGuns weigh the correct amount.
+	* Use the 'real' weight of a unit (subtracting for lost ammo, armor
+	  and limbs) for DFA (like towing already did.)
+	* Controlled by the WEIGHT_OVERSPEED define in btconfig.h, allow
+	  units to exceed their maximum speed when they lose weight.
+	* Don't allow 'Mechs to run in water. Mechs running into water make
+	  a higher roll to stay standing and get more damage on fall.
+	* Don't allow disembarked MechWarriors to embark a unit with a
+	  dysfunctional cockpit
+	* On disembark/eject/autoeject, copy freqs and modes (but not
+	  titles) from the 'mech to the disembarked MechWarrior (controlled
+	  by the COPY_CHANS_ON_EJECT #define)
+	* On disembark/eject/autoeject, give the MechWarrior a random
+	  frequency (controlled by the RANDOM_CHAN_ON_EJECT #define)
+	* Log 0-freqs on IC maps to the ZeroFrequencies channel
+	* MaxTech based stagger code, if enabled with @admin
+	  btech_newstagger.  Roll for stagger once a turn, but modified by
+	  the amount of damage done in the turn.  Also add stagger checks
+	  during/right before jumps.
+	* Fix BTH speed modifiers over 10MP to be BMR FASA standard, or
+	  MaxTech FASA standard if @admin btech_Extendedmovemod is used.
+	* Update the unit template database with 3030's, includes a lot of
+	  weight glitchfixes and cleans up the customs.
+	* Rewrite and document internal 'real coord to hex coord' and
+	  vice-versa code. Same algorithm, just a more obvious
+	  implementation and lots of explanation.
+	* Rewrite navigate to draw 'mech locations more accurately, based on
+	  a grid instead of angle-and-distance-to-centre.
+	* Add a sixth (optional) argument to the @mapvis attribute on maps:
+	  a message to broadcast to all units on the map when the changes
+	  take actual effect.
+	* Make heatcutoff slightly less munchy by only disabling whole
+	  (single or double) heatsinks, and only one heatsink per tick
+	* Don't insta-re-enable heatsinks when disabling heatcutoff
+	* List 'TSM(On)' and 'TSM(Off)' on status, not just colours.
+	* Conform super-heavy engine weights (rating above 400) to conform
+	  to FASA MaxTech.
+	* Add weight-based variable armor diagrams; different pictures for
+	  light, medium, heavy and assault units. Contributed by C.W.
+	  Glover, and controlled by the WEIGHTVARIABLE_STATUS #define.
+	* Optionally let OBSERVATORIC units have ObservationLounge-like
+	  radio behaviour: hear everything, regardless of frequency.
+	  Contributed by an anonymous person and controlled by the
+	  OBSERVATORIC_OL_RADIO #define.
+	* Optionally have less severe stacking. @admin btech_stacking now
+	  means:
+	  0: no stacking punishment what so ever
+	  1: a stacking 'mech stops suddenly, and has to make a pilot roll
+	     modified by the number of units in the stack.
+	  2: involuntary charge by the stacking 'mech (default, and unchanged.)
+	* Make damage done in case of stacking option 2 configurable. 
+	  btech_stackdamage is a percentage of damage to apply, defaulting
+	  to 100.
+	* Fix the provided MechWarrior template to have short radio and
+	  tactical ranges, as well as no digital radio.
+	* Optionally always let MechWarriors have LOSMaps only; controlled
+	  by @admin btech_mw_losmap (defaults to on)
+	* Add Silicon as commodity type, next to Sillicon to avoid breakage
+	* New 'mechprefs' command, consolidating a set of 'settings':
+	  - Convert old 'weapon safeties' to 'MWSafety' mechpref (on by
+	    default)
+	  - FFSafety: like MWSafety but for friendly fire (off by default)
+	  - SLWarn: warn when lit by searchlight (off by default)
+	  - ArmorWarn: warn when armor is low/critical/breached (on by
+	    default)
+	  - AmmoWarn: warn when ammo is low (on by default)
+	  - AutoFall: don't try to stop when hitting a cliff (off by
+	    default)
+	  - AutoconShutdown: See shutdown units on autocon (off by default)
+	* Add 'stand check', to display BTH to stand
+	* Add 'stand anyway', to stand regardless of BTH
+	* Make 'stand' not try and stand when BTH exceeds 12
+	* Make VRT more easily configurable, by providing just the times for
+	  the various weapons in a separate include file. Customization can
+	  be easily done by adding your own include file.
+	* Skip sections that have no internals, when calculating weight, to
+	  avoid broken temlates with 'phantom' sections.
+	* Add 'c' flag to 'lrs', for 'colorized elevations', which shows
+	  elevations but colorized by actual terrain type.
+	* Add 'navigate <target>' and 'navigate <bearing> <range>',
+	  mimicking lrs and tactical. Maximum range is that of tactical.
+	* Add 'tactical b', showing valid DropShip LZ's
+	* Add 'checklz x y' to checklz, to check hexes other than the
+	  current one.  Maximum range is that of tactical.
+	* Allow @mapcolor attributes to be set to shorter strings than the
+	  maximum, padding it with the defaults.
+	* Add 'valid LZ' and 'invalid LZ' color characters to @mapcolor,
+	  default bright green and bright red.
+	* Protect some xcodevalues from being changed, particularly ones
+	  that could cause memory corruption when changed incorrectly
+
+New scode functions:
+	* cemit(<channel>, <message>)
+	  Mimick @cemit from scode.
+	* setlock(<type>, <object>/<attribute>, <lock>)
+	  Mimick @lock/<type> <object>/<attribute> = <lock>. For @lock
+	  without /type, set <type> to 'defaultlock' or the empty string. 
+	  <attribute> may be empty, as well.
+	* btpartmatch(<string>)
+	  Wildcard-match in long-name parts database (like addstuff does)
+	  and return a part number.
+	* btpartname(<partnumber>, <which>)
+	  Turn a partnumber into a name.  <which> is 'short', 'long' or
+	  'vlong' depending on which name you want.
+	* bthexlosbroadcast(map, x, y, msg)
+	  Broadcast a message to all units within Line of Sight of hex
+	  (x,y).  In the message, '$h' is replaced by the hex (x,y), or the
+	  string 'your hex' for units in that hex. '$H' is replaced by the
+	  same, but the (x,y) is in bright yellow and units in the hex get a
+	  bright red 'YOUR HEX' instead.
+	* btmakepilotroll(<mech>, <rollmod>, <dammod>)
+	  Force <mech> to make a pilotroll, with <rollmod> penalty. On
+	  failure, the unit falls over (with <dammod> as 'number of levels
+	  fallen').  Returns 0 on failure and 1 on success.
+	* btgetreftech(<ref>)
+	  list the 'tech' used in mechref <ref>, like 'showtech' in MECHREP
+	  objects.
+	* btgetdbreffromid(<mech or map>, <mechid>)
+	  Get dbref of <mechid> relative to <mech>, if it is in LoS, or from
+	  <map> directly.
+	* btlostohex(<mech>, <x>, <y>)
+	  Return whether <mech> has LoS to <x>,<y>
+	* btlostomech(<mech>, <other>)
+	  Return whether <mech> has LoS to <other>. Both should be dbrefs,
+	  not mechids.
+	* btaddparts(<location>, <partname>, <amount>)
+	  Add <amount> <partnames> to <location>. Wildcards are accepted but
+	  only the first match will get added.
+	* btloadmech(<object>, <mechref>)
+	  Load new <mechref> onto <object>, as if done through a MECHREP
+	  object and 'loadnew'. Returns success/failure.
+	* btloadmap(<object>, <mapname> [, <clearmechs>])
+	  Load new map <mapname> on <object>, and clear mechs if
+	  <clearmechs> is passed and true. Return success/failure.
+	* btmechfreqs(<mech>)
+	  Return a comma-separated list of frequencies set in mech, with
+	  title and modes, in the format:
+
+	    <channum> | <freq> | <flags> | <colour>
+
+	  where <channum> starts at 1, <freq> is the actual frequency set,
+	  <colour> is the colour setting for the channel (a capital meaning
+	  bold) and <flags> is a bitvector of:
+	    a: set digital
+	    b: set muted
+	    c: set relay
+	    d: set info
+	    e: set scan
+	  comtitles are not returned because of escaping issues.
+	* Make second argument to btstores() optional. When just passed a
+	  location, show all parts of that location in a |-separated list of
+	  partname:amount pairs.
+	* New 'sensorflags' xcodevalue for map objects, to indicate sensors
+	  that are not usable on the map. A bitvector string, where the
+	  letters mean:
+	    a: Visual
+	    b: Light Amp
+	    c: Infrared
+	    d: Electromagnetic
+	    e: Seismic
+	    f: Radar
+	    g: Beagle Active Probe
+	    h: Bloodhound Active Probe
+	* New 'mapflags' for maps:
+	    g: bridges are CombatSafe
+	    h: do not convert road to bridges on loading of map
+	* New radiotype value, 128, indicates the radio can't do digital
+	  transmissions. Set in the MechWarrior template to disallow MWs to
+	  do digital radio.
+	* New 'mechjumpspeed' xcodevalue for 'Mechs: jumpspeed in kph, which
+	  is also the range.
+	* New 'mechjumpheading' xcodevalue for 'Mechs: heading of current
+	  jump
+	* New 'jumprange' xcodevalue for 'Mechs: range of the current jump
+	  in 322.5th of a hex.
+	* Add 'mechprefs' xcodevalue to 'Mechs:
+	    a: MWSafety is off
+	    b: SLWarn is on
+	    c: Autofall is on
+	    d: ArmorWarn is off
+	    e: AmmoWarn is off
+	    f: unused
+	    g: AutoconShutdown is on
+	    h: FFSafety is off
+
+ MUX code bugs:
+	* rewrite and(), or(), xor(), add() and mul() implementations
+	* Don't allow channel messages to contain a newline (corrupts the
+	  comsys db)
+
+ btech code bugs:
+	* fix obscure bug in building locks and CombatSafeness
+	* fix radar not calculating height of target properly
+	* fix HUDINFO scan giving incorrect info or crashing
+	* fix aeros getting strafing run BTH bonus while landed
+	* fix DropShips getting +2 BTH penalty while firing landed
+	* only drop clubs if you are carrying one
+	* accumulate Tech-Weapons XP when using Tech-Weapons skills
+	* properly set flying units 'landed' when they crash
+	* disallow IDF on UNDERGROUND maps
+	* don't allow seismic to 'see' buildings
+	* don't make dead units always fall off the bridge they died on
+	* only report takeoffs of DropShips, not other Aeros, on DSInfo
+	* don't assume a unit can always see its own hex, on DARK maps
+	* don't allow cliff-tacticals on DARK maps
+	* conform weight calculation to FASA; round various values properly
+	* fix bug in engine rating calculations for high speeds
+	* add a slight delay between a 'Mech being zeroed by a Stackpole,
+	  and its database object being destroyed, in order for scode to
+	  properly notice.
+	* allow for stackpole even when it isn't triggered by weaponsfire
+	* correct the weight of the RocketLauncher-20 (1.5 tons, not 3)
+	* don't allow charging or DFA'ing of MechWarriors   
+	* take weapon safeties into account for physical attacks on
+	  MechWarriors
+	* fix bug where aiming for the Left Arm/Side/Wing with a TargComp
+	  would not get a BTH penalty for mobile units.
+	* set weapons recycling even when they have a 'round spirals off'
+	  failure
+	* show InfantryTech in the short 'showtech' list
+	* broadcast when a unit gets jellied
+	* allow maps to have 0 visibility
+	* don't show 3D range for hexes on dark maps (since you can't see
+	  terrain height)
+	* fix bug where 'addtech' didn't correctly add LifterTech,
+	  LightEngine_Tech and CritProof_Tech.
+	* fix various missing or incorrect boundary checks
+	* don't allow tanks to dig-in on bridges
+	* don't allow quads to go hulldown while moving
+	* make physical attacks gain better XP
+	* don't allow MechWarriors to spot
+	* fix crashing bugs in ammo dumping code
+	* fix various issues with naval units, and submarines in particular
+	* fix bug where VTOL/Aeros flying straight out of their bay and
+	  never stopping, effectively moved twice as fast as other units of
+	  the same speed.
+	* allow 'Mechs standing in level 1 water punching vehicles.
+	* don't allow PCOMBAT weapons to clear woods.
+	* fix HELP message for INARC.
+	* fix bug where a flooded and then blown off section still needs
+	  resealing after the reattach.
+	* fix bug where cliffing underneath a bridge could place you ontop
+	  of it
+	* fix bug where units destroyed under bridges would end up on top of
+	  them
+	* don't slow down hovers when moving over water of different depths
+	* don't allow fallen 'mechs to enterbay, just like they can't
+	  enterbase
+	* have Streak weapons fired on hexes behave like Streak weapons.
+	* don't allow pickup of units that are too high above you
+	* fix obscure bugs in overspeeding code (low gravity)
+	* fix XP distribution for spotting/IDF situations; the spotter gets
+	  Spotting XP, the firing unit gets Artillery XP.
+	* fix bug where shutting down while MASC'ed and starting up fast
+	  would give you perma-MASC without risk.
+	* don't allow tanks to 'extinguish' more than once at a time
+	* properly extinguish fires when entering water hexes
+	* don't let 'sight' on hexes show whether there's a unit inside it
+	* Fix 'X-Ray SearchLights' that would illuminate units through
+	  blocking terrain.
+	* Don't allow running in water underneath ice either
+	* Break ice when standing in level-1 water
+	* Properly kill tanks breaking through ice, with message and all
+	* Break ice when picking up a unit 'through' the ice
+	* Don't let OODing mechs count toward stack limits
+	* don't cliff hoves that go from l0 bridge to l1 bridge
+	* don't drown vehicles that manage to break l0 ice
+	* fix bug where btdamagemech() with a clustersize of 0 would hang
+	  the MUX
+	* fix crashing bugs in macros
+	* fix various memory corruption bugs and other issues found by
+	  Valgrind
+	* fix off-by-one error in loading maps of X size 1000
+	* fix various places that had differing messages for 'no such ID on
+	  map' and 'no LOS to ID', to prevent 'ID-scanning'.
+	* fix off-by-one error in kick range test in autopilots, causing
+	  them to always or never try to kick, instead of just when in
+	  range.
+	* don't use the lowest order bits from random() if at all possible;
+	  they tend to be a lot less random. If we need more than a few
+	  bits, it doesn't really matter, but on a D6 roll it does.
+
+btechmux 1.4.3:
+    - new features
+	* Rocket Launchers from FM: Periphery (Cord)
+	* HUDINFO version 0.6 (optional, default on) (Focus)
+	* Part weight (optional, configure in btconfig.h) (Greg Taylor)
+	* New connect.txt's for the MUXample DB (Greg Taylor, Focus)
+	* Variable Recycle Time (optional, configure in btconfig.h) (Cord)
+	* New Stagger code: stagger only once a turn (Focus)
+	* add Clan MicroPulseLaser weapon from BMR (Focus)
+	* Rework 'status short' to show more useful info (NC, Focus)
+	* Fusion VTOLs no longer need fuel (Cord)
+	* Add 'None' to argument for 'settype' (Greg Taylor)
+	* @log and logf() to log to arbitrary files in the 'log'
+	  directory (optional in config.h, default on) (Kevin Stevens)
+	* Rework hcode.db loading code so XCODE structs are growable,
+	  reducing the need for hcode.db wipes in the future (Focus)
+	* 'enterbay' command to AUTOPILOTs, in both radio-controlled
+	  and programmed modes. (Focus)
+	* Use building or dropship hangar's @FAIL attribute as 'failure'
+	  message when trying to enter a base or bay (Focus)
+	* MechWarrior Companion advantages (Bloodname, Combat_Sense,
+	  Contact, Dropship and EI_Implant) and skills (Drive-Naval,
+	  Piloting-Battlesuit, Riding, Technician-Battlesuit,
+	  Technician-Spacecraft and Zero-G_Operations.)
+	  Piloting-Battlesuit differs from Piloting-BSuit in that it is an
+	  Atheltic skill, rather than a Physical one, and also in that it
+	  isn't used in actual code yet. (Focus)
+	
+    - Bugfixes
+	* Rewrite (template) weight calculation code to be more correct for
+	  both 'mechs and tanks. The main impact is on tanks, however, as
+	  the weight calculation for those was very wrong. Also fix many
+	  templates to comply to the new rules. (Focus)
+	* Rewrite weapon weight calculation so Long Toms and Clan
+	  MachineGuns have their actual weight. (Focus)
+	* Lots of C3/C3i fixes (Cord)
+	* Lots of Battlesuit fixes (Cord)
+	* Report the correct 'mech on MechXP when fixing, removing or
+	  replacing guns (Cord & Focus at the same time)
+	* Use the correct cargo type when repairing Compact, Light and XXL
+	  Engines (Focus)
+	* Fix (very old) comparison between pointer and integer that had
+	  potential to crash the MUX when using Extended Range. (Focus)
+	* Fix weight of IS Ultra AC/2 (was 6, should be 7 tons) (Focus)
+	* Prevent Death-XP-removal code from handing out XP if the
+	  btech_xploss config setting is too high (Focus)
+	* Ignore whitespace in config file rather than complaining about
+	  'unknown directives' (Focus)
+	* Robustify mkindx to deal with long lines (Focus)
+	* Take Pilot skills into account when doing BV calculations for XP
+	  gain (Cord, bug found by Marcus Hazen@3030)
+	* Prevent jumping 'mechs from being picked up (Cord)
+	* Disallow enterbase until unit speed is close to 0 kph,
+	  not 10.75 kph (1MP) (Cord)
+	* Sanitized weapon-arc handling, giving tanks and 'mechs the
+	  same (FASA) weapon arcs (Focus)
+	* Fix tank 'ammoboom' critical hits (Cord)
+	* Fix 'stores' and 'manifest' to show '1k' (or higher) rather than
+	  always 999 for values over 999 (Focus)
+	* Lots of removal of dead code (Focus)
+	* Lots of code cleanup (Cord, Focus, NC)
+
+btechmux 1.4.2:
+    - New features
+	* Add compile-time setting (DO_PARSE_WIZNEWS) to enable %-parsing of
+	  the 'wiznews' file. (Greg Taylor & Focus, SF patch #500268)
+	* Allow 'who' and 'last' on channels that you currently do not have
+	  'on', if you are a Wizard or the @admin allow_chanlurking is on
+	  (defaults to off) (Focus)
+	* Allow 'setteam' to set the team num to any int, rather than up to
+	  and including 26. (Focus)
+	* Add 'b' (for BattleSuits) as argument to 'settype'
+	  (Greg Taylor, SF patch #500269)
+	* Add a number of maps from Greg Taylor (SF patch #500071)
+	* Reworked build mechanism so GDBM is no longer needed. dbconvert is
+	  not built by default now; use regular TinyMUX dbconvert if you
+	  need it. (Focus)
+	* Add player-customizable tactical/navigate/lrs colors, using
+	  the MAPCOLOR attribute. (Focus)
+	* Allow 'repairs' and 'damages' commands outside of stalls if
+	  btech_limitedrepairs is false. (Cord)
+
+    - Bugfixes
+	* Fix a longstanding crashing bug in regmatch() (Focus & Null)
+	* Fix crashing bug in AUTOPILOTs if any are 'active' during
+	  @restart/startup. (Focus)
+	* Big overhaul on the comsystem, removing numerous crashing bugs
+	  without introducing too many new ones (hopefully) (Focus)
+	* Fix a few of the checks in configure so crypt() is properly
+	  detected. (Focus)
+	* Fix buglet in @mechstatus support that caused armor/internal
+	  numbers to always show up in highlighted-black, even if the
+	  section was destroyed. (Focus)
+	* Fix SF bug #500646: spurious DAMAGED weaponstatus for large
+	  (multi-crit) weapons in vehicles. (Focus)
+	* Set speed of dropped-off units to 0 (NC)
+	* Plug buffer-overrun in 'loadnew' command and a few others that
+	  use it. (Focus)
+	* Fix spurious warnings about empty lines in the MUX .conf file.
+	  (Focus)
+	* Fix SF bug #502112, the sizes of Aerodyne and Spheroid dropships
+	  for hexlos-tracing were swapped. (Focus & Null)
+	* Fix bug where a tank driving off a cliff into water wouldn't get
+	  auto-killed (missing water checks.) (Cord)
+	* Fix weapon destruction for 'damaged' weapons. (Cord)
+	* Add missing '<item> destroyed!' messages for damaged items;
+	  this could cause CRITICAL HIT!! messages without saying what was
+	  critically hit. (Cord)
+	* General code cleanup and removal of dead code (NC, Focus)
+
+btechmux 1.4.1:
+	* Re-package slightly differently, to avoid broken downloads
+	* Mark the game/data/ files as 'binary' in CVS, as they are
+	* Add CodingStyle document
+	* Guard against possible 'out of map' problem in artillery (NC)
+	* Make @mechstatus (custom 'status' template settable from scode) 
+	  working again. (Focus)
+	* Fix bug in 'status' where ')' in the 'status' template script was
+	  incorrectly handled. (Focus)
+	* Make the MechPer() (perception modifier) value of a 'mech visible
+	  and changeable from scode. (Focus)
+
+btechmux 1.4.0: baseline release
+

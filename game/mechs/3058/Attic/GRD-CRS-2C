@@ -1,0 +1,73 @@
+Name             { Grand Crusader }
+Reference        { GRD-CRS-2C }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 80 }
+Computer         { 4 }
+Radio            { 4 }
+Heat_Sinks       { 22 }
+Max_Speed        { 53.75 }
+Specials         { DoubleHS ArtemisIV }
+Left_Arm
+  Armor            { 26 }
+  Internals        { 13 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3-4		  { EndoSteel - - }
+    CRIT_5-6		  { IS.LargePulseLaser - - }
+    CRIT_7-11		  { IS.LRM-20 - - }
+    CRIT_12		  { ArtemisIV - - }
+Right_Arm
+  Armor            { 26 }
+  Internals        { 13 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3-4		  { EndoSteel - - }
+    CRIT_5-6		  { IS.LargePulseLaser - - }
+    CRIT_7-11		  { IS.LRM-20 - - }
+    CRIT_12		  { ArtemisIV - - }
+Left_Torso
+  Armor            { 26 }
+  Internals        { 17 }
+  Rear             { 8 }
+    CRIT_1-5		  { EndoSteel - - }
+    CRIT_6-8		  { HeatSink - - }
+    CRIT_9		  { Ammo_IS.LRM-20 6 Artemis/Mine }
+Right_Torso
+  Armor            { 26 }
+  Internals        { 17 }
+  Rear             { 8 }
+    CRIT_1-5		  { EndoSteel - - }
+    CRIT_6-8		  { HeatSink - - }
+    CRIT_9		  { Ammo_IS.LRM-20 6 Artemis/Mine }
+Center_Torso
+  Armor            { 42 }
+  Internals        { 25 }
+  Rear             { 8 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+Left_Leg
+  Armor            { 34 }
+  Internals        { 17 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { Ammo_IS.LRM-20 6 Artemis/Mine }
+Right_Leg
+  Armor            { 34 }
+  Internals        { 17 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { Ammo_IS.LRM-20 6 Artemis/Mine }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

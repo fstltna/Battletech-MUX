@@ -1,0 +1,83 @@
+Name             { King Crab }
+Reference        { KGC-001 }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 100 }
+Comment          { Saved by: Charlemagne(#4624) at Wed Feb 16 08:03:00 2000 }
+Computer         { 4 }
+Radio            { 4 }
+Heat_Sinks       { 13 }
+Mech_BV          { 1714 }
+Max_Speed        { 53.75 }
+Specials         { FlipArms }
+Left_Arm
+  Armor            { 34 }
+  Internals        { 17 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3-9		  { IS.GaussRifle - - 3 }
+    CRIT_10-11		  { Ammo_IS.GaussRifle 8 - - }
+    CRIT_12		  { FerroFibrous - - 3 }
+Right_Arm
+  Armor            { 34 }
+  Internals        { 17 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3-9		  { IS.GaussRifle - - 3 }
+    CRIT_10-11		  { Ammo_IS.GaussRifle 8 - - }
+    CRIT_12		  { FerroFibrous - - 3 }
+Left_Torso
+  Armor            { 30 }
+  Internals        { 21 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - 3 }
+    CRIT_4		  { Case - - 3 }
+    CRIT_5		  { Ammo_IS.LRM-15 8 - - }
+    CRIT_6		  { IS.StreakSRM-2 - - 3 }
+    CRIT_7		  { Ammo_IS.StreakSRM-2 50 - - }
+    CRIT_8-10		  { IS.LRM-15 - - 3 }
+    CRIT_11-12		  { FerroFibrous - - 3 }
+Right_Torso
+  Armor            { 30 }
+  Internals        { 21 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - 3 }
+    CRIT_4-5		  { IS.LargePulseLaser - - 3 }
+    CRIT_6		  { IS.StreakSRM-2 - - 3 }
+    CRIT_7		  { Ammo_IS.StreakSRM-2 50 - - }
+    CRIT_8		  { Case - - 3 }
+    CRIT_9-12		  { FerroFibrous - - 3 }
+Center_Torso
+  Armor            { 44 }
+  Internals        { 31 }
+  Rear             { 15 }
+    CRIT_1-3		  { Engine - - 3 }
+    CRIT_4-7		  { Gyro - - 3 }
+    CRIT_8-10		  { Engine - - 3 }
+    CRIT_11-12		  { FerroFibrous - - 3 }
+Left_Leg
+  Armor            { 40 }
+  Internals        { 21 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3		  { LowerActuator - - 3 }
+    CRIT_4		  { HandOrFootActuator - - 3 }
+    CRIT_5-6		  { FerroFibrous - - 3 }
+Right_Leg
+  Armor            { 40 }
+  Internals        { 21 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3		  { LowerActuator - - 3 }
+    CRIT_4		  { HandOrFootActuator - - 3 }
+    CRIT_5		  { HeatSink - - 3 }
+    CRIT_6		  { FerroFibrous - - 3 }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - 3 }
+    CRIT_2		  { Sensors - - 3 }
+    CRIT_3		  { Cockpit - - 3 }
+    CRIT_4		  { FerroFibrous - - 3 }
+    CRIT_5		  { Sensors - - 3 }
+    CRIT_6		  { LifeSupport - - 3 }

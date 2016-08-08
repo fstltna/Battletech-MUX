@@ -1,0 +1,27 @@
+Name             { Gallowglass }
+Reference        { Galleon }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 30 }
+Max_Speed        { 118.25 }
+Left_Side
+  Armor            { 18 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+Right_Side
+  Armor            { 18 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+Front_Side
+  Armor            { 25 }
+  Internals        { 3 }
+    CRIT_1		  { BeagleProbe - - 0 }
+Aft_Side
+  Armor            { 19 }
+  Internals        { 3 }
+Turret
+  Armor            { 26 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MediumPulseLaser - - 3 }
+Rotor
+  Armor            { 14 }

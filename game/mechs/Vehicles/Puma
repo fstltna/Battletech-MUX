@@ -1,0 +1,37 @@
+Name             { Puma }
+Reference        { PUMA }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 95 }
+Comment          { Saved by: Spectre(#4628) at Mon Jan 14 09:41:36 2002 }
+Heat_Sinks       { 19 }
+Mech_BV          { 936 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
+Max_Speed        { 53.75 }
+Left_Side
+  Armor            { 34 }
+  Internals        { 10 }
+    CRIT_1		  { IS.LRM-20 - - 3 }
+    CRIT_2		  { Ammo_IS.LRM-20 6 - - }
+Right_Side
+  Armor            { 34 }
+  Internals        { 10 }
+    CRIT_1		  { IS.LRM-20 - - 3 }
+    CRIT_2		  { Ammo_IS.LRM-20 6 - - }
+Front_Side
+  Armor            { 50 }
+  Internals        { 10 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MediumLaser - - 3 }
+    CRIT_3		  { IS.SRM-4 - - 3 }
+    CRIT_4		  { Ammo_IS.SRM-4 25 - - }
+Aft_Side
+  Armor            { 24 }
+  Internals        { 10 }
+    CRIT_1		  { IS.Flamer - - 3 }
+    CRIT_2		  { IS.SmallLaser - - 3 }
+Turret
+  Armor            { 50 }
+  Internals        { 10 }
+    CRIT_1		  { IS.PPC - - 3 }

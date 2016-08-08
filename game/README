@@ -1,0 +1,22 @@
+
+This directory is intended to be an example on how to build your MUX. It
+contains some example configuration files, the Startmux script to start the
+MUX, and a basic set of 'mechs and maps to use, taken from 3030MUX. The
+'mechs are courtesy of Cord Awtry (Spectre). The maps prefixed with 'gb.'
+were contributed by Greg Taylor (aka Grant Blackman.)
+
+It also contains a skeleton database, which is started by running Startmux.
+It contains two characters, the God character 'Blake' with the password
+'3030rox', and the Wizard character 'Focus', with the password 'foo'. It
+contains some example code, that is all. Feel free to offer contributions if
+you wish. However, the database isn't intended to become a ready-to-run MUX
+of the quality of some of the larger MUXen out there. A lot of work is
+involved, and it stays a learning experience. This database is purely a
+simple example.
+
+Nevertheless, have fun with what is here. To run the example database, make
+sure the binaries are in place in bin/, and run './Startmux'. This will
+start the MUX on port 3030. 
+
+  Focus@3030MUX
+

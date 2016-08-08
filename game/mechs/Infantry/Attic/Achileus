@@ -1,0 +1,24 @@
+Name             { Achileus }
+Reference        { Achileus }
+Type             { Battlesuit }
+Move_Type        { Biped }
+Tons             { 1 }
+Max_Speed        { 32.50 }
+Jump_Speed       { 32.50 }
+Specials         { FWLStealth_Tech }
+Suit_1
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - }
+Suit_2
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - }
+Suit_3
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - }
+Suit_4
+  Armor            { 6 }
+  Internals        { 1 }
+    CRIT_1		  { IS.SmallLaser - - }

@@ -1,0 +1,23 @@
+Name             { MASH }
+Reference        { MASH }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 20 }
+Max_Speed        { 86.00 }
+Left_Side
+  Armor            { 16 }
+  Internals        { 2 }
+Right_Side
+  Armor            { 16 }
+  Internals        { 2 }
+Front_Side
+  Armor            { 12 }
+  Internals        { 2 }
+Aft_Side
+  Armor            { 10 }
+  Internals        { 2 }
+Turret
+  Armor            { 10 }
+  Internals        { 2 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SmallLaser - - }

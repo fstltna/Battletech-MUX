@@ -1,0 +1,28 @@
+Name             { Tracked APC }
+Reference        { Tracked_APC }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 10 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:51:04 2000 }
+Computer         { 3 }
+Mech_BV          { 53 }
+Cargo_Space      { 1024 }
+Max_Speed        { 96.75 }
+Specials         { CargoTech ICEEngine_Tech }
+Left_Side
+  Armor            { 8 }
+  Internals        { 1 }
+Right_Side
+  Armor            { 8 }
+  Internals        { 1 }
+Front_Side
+  Armor            { 10 }
+  Internals        { 1 }
+Aft_Side
+  Armor            { 10 }
+  Internals        { 1 }
+Turret
+  Armor            { 4 }
+  Internals        { 1 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+    CRIT_2		  { Ammo_IS.MachineGun 200 - - }

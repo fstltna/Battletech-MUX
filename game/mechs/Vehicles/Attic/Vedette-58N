@@ -1,0 +1,26 @@
+Name             { Vedette }
+Reference        { Vedette-58N }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 50 }
+Computer         { 3 }
+Max_Speed        { 86.00 }
+Left_Side
+  Armor            { 18 }
+  Internals        { 5 }
+Right_Side
+  Armor            { 18 }
+  Internals        { 5 }
+Front_Side
+  Armor            { 22 }
+  Internals        { 5 }
+    CRIT_1		  { IS.MachineGun - - 3 }
+    CRIT_2		  { Ammo_IS.MachineGun 100 Hotload - }
+Aft_Side
+  Armor            { 20 }
+  Internals        { 5 }
+Turret
+  Armor            { 21 }
+  Internals        { 5 }
+    CRIT_1		  { IS.UltraAC/5 - - 3 }
+    CRIT_2		  { Ammo_IS.UltraAC/5 20 - - }

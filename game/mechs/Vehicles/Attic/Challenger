@@ -1,0 +1,41 @@
+Name             { Challenger }
+Reference        { Challenger }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 90 }
+Max_Speed        { 53.75 }
+Left_Side
+  Armor            { 50 }
+  Internals        { 9 }
+    CRIT_1		  { IS.StreakSRM-2 - - }
+    CRIT_6-9		  { FerroFibrous - - }
+Right_Side
+  Armor            { 50 }
+  Internals        { 9 }
+    CRIT_1		  { IS.StreakSRM-2 - - }
+    CRIT_6-9		  { FerroFibrous - - }
+Front_Side
+  Armor            { 57 }
+  Internals        { 9 }
+    CRIT_1		  { IS.MediumPulseLaser - - }
+    CRIT_2		  { IS.MediumPulseLaser - - }
+    CRIT_10-12		  { FerroFibrous - - }
+Aft_Side
+  Armor            { 37 }
+  Internals        { 9 }
+    CRIT_1		  { IS.SmallPulseLaser - - }
+    CRIT_10-12		  { FerroFibrous - - }
+Turret
+  Armor            { 57 }
+  Internals        { 9 }
+    CRIT_1		  { IS.GaussRifle - - }
+    CRIT_2		  { IS.LRM-10 - - }
+    CRIT_3		  { ArtemisIV - - }
+    CRIT_4		  { IS.LB10-XAC - - }
+    CRIT_5		  { IS.Anti-MissileSystem - - }
+    CRIT_6-7		  { Ammo_IS.GaussRifle 8 - - }
+    CRIT_8		  { Ammo_IS.LRM-10 12 Artemis/Mine - }
+    CRIT_9		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_10		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
+    CRIT_11		  { Ammo_IS.Anti-MissileSystem 12 - - }
+    CRIT_12		  { Ammo_IS.StreakSRM-2 50 - - }

@@ -1,0 +1,26 @@
+Name             { Striker }
+Reference        { StrikerSRM }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 35 }
+Computer         { 3 }
+Max_Speed        { 86.00 }
+Left_Side
+  Armor            { 20 }
+  Internals        { 4 }
+Right_Side
+  Armor            { 20 }
+  Internals        { 4 }
+Front_Side
+  Armor            { 24 }
+  Internals        { 4 }
+Aft_Side
+  Armor            { 18 }
+  Internals        { 4 }
+Turret
+  Armor            { 18 }
+  Internals        { 4 }
+    CRIT_1		  { IS.SRM-6 - - 3 }
+    CRIT_2		  { IS.SRM-6 - - 3 }
+    CRIT_3		  { IS.SRM-6 - - 0 }
+    CRIT_4-5		  { Ammo_IS.SRM-6 15 - - }

@@ -1,0 +1,24 @@
+Name             { Sprint }
+Reference        { Sprint-S }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 10 }
+Max_Speed        { 215.00 }
+Left_Side
+  Armor            { 3 }
+  Internals        { 1 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Right_Side
+  Armor            { 3 }
+  Internals        { 1 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Front_Side
+  Armor            { 7 }
+  Internals        { 1 }
+    CRIT_1		  { BeagleProbe - - 3 }
+Aft_Side
+  Armor            { 3 }
+  Internals        { 1 }
+Rotor
+  Armor            { 2 }
+  Internals        { 1 }

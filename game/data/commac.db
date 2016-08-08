@@ -1,0 +1,121 @@
+*** Begin COMMAC ***
+1
+2 0 0 -1 -1 -1 -1 0
+*** Begin COMSYS ***
++V2
+14
+Wizard
+622 0 0 0 2 0 0 8 0
+0
+MechErrors
+110 0 0 0 2 0 0 8 0
+0
+MechXP
+110 0 0 0 2 0 0 8 0
+0
+Suspect
+110 0 0 0 2 0 0 8 0
+0
+MechAI
+110 0 0 0 2 0 0 8 0
+0
+EventInfo
+110 0 0 0 2 0 0 8 0
+0
+MechEconInfo
+110 0 0 0 2 0 0 8 0
+0
+MineTriggers
+110 0 0 0 2 0 0 8 0
+0
+MechDebugInfo
+110 0 0 0 2 0 0 8 0
+0
+DBInfo
+110 0 0 0 2 0 0 8 0
+0
+MechSensor
+110 0 0 0 2 0 0 8 0
+0
+SuspectsLog
+110 0 0 0 2 0 0 8 0
+0
+MUXConnections
+110 0 0 0 2 0 0 8 0
+0
+Public
+127 0 0 0 2 0 0 -1 0
+0
+*** Begin MACRO ***
+1
+2 69 0
+D:0
+1 fire 1 *
+10 fire 10 *
+11 fire 11 *
+12 fire 12 *
+13 fire 13 *
+14 fire 14 *
+15 fire 15 *
+16 fire 16 *
+17 fire 17 *
+18 fire 18 *
+19 fire 19 *
+2 fire 2 *
+20 fire 20 *
+21 fire 21 *
+22 fire 22 *
+23 fire 23 *
+24 fire 24 *
+25 fire 25 *
+26 fire 26 *
+27 fire 27 *
+28 fire 28 *
+29 fire 29 *
+3 fire 3 *
+30 fire 30 *
+4 fire 4 *
+5 fire 5 *
+6 fire 6 *
+7 fire 7 *
+8 fire 8 *
+9 fire 9 *
+ct rottorso c
+h heading *
+j jump *
+lt rottorso l
+n navigate *
+rt rottorso r
+s speed *
+s1 sight 1 *
+s10 sight 10 *
+s11 sight 11 *
+s12 sight 12 *
+s13 sight 13 *
+s14 sight 14 *
+s15 sight 15 *
+s16 sight 16 *
+s17 sight 17 *
+s18 sight 18 *
+s19 sight 19 *
+s2 sight 2 *
+s20 sight 20 *
+s21 sight 21 *
+s22 sight 22 *
+s23 sight 23 *
+s24 sight 24 *
+s25 sight 25 *
+s26 sight 26 *
+s27 sight 27 *
+s28 sight 28 *
+s29 sight 29 *
+s3 sight 3 *
+s30 sight 30 *
+s4 sight 4 *
+s5 sight 5 *
+s6 sight 6 *
+s7 sight 7 *
+s8 sight 8 *
+s9 sight 9 *
+st status *
+t tactical *

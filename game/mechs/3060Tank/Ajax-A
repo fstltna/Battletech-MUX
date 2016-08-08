@@ -1,0 +1,35 @@
+Name             { Ajax }
+Reference        { Ajax-A }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 90 }
+Comment          { Saved by: Spectre(#4628) at Thu Jul 11 07:55:40 2002 }
+Computer         { 4 }
+Radio            { 4 }
+Mech_BV          { 1409 }
+Cargo_Space      { 0 }
+Max_Suits        { 0 }
+Max_Speed        { 53.75 }
+Specials         { XLEngine_Tech }
+Left_Side
+  Armor            { 60 }
+  Internals        { 10 }
+Right_Side
+  Armor            { 60 }
+  Internals        { 10 }
+Front_Side
+  Armor            { 76 }
+  Internals        { 10 }
+Aft_Side
+  Armor            { 40 }
+  Internals        { 10 }
+    CRIT_1-9		  { Ammo_IS.RotaryAC/5 20 - - }
+    CRIT_10		  { C3Slave - - 3 }
+    CRIT_11		  { Ecm - - 3 }
+Turret
+  Armor            { 68 }
+  Internals        { 10 }
+    CRIT_1		  { IS.RotaryAC/5 - - 3 }
+    CRIT_2		  { IS.RotaryAC/5 - - 3 }
+    CRIT_3		  { IS.RotaryAC/5 - - 3 }
+    CRIT_4		  { IS.ERSmallLaser - - 3 }

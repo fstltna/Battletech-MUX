@@ -1,0 +1,34 @@
+Name             { Kanazuchi }
+Reference        { Kanazuchi }
+Type             { Battlesuit }
+Move_Type        { Biped }
+Tons             { 1 }
+Mech_BV          { 251 }
+Max_Suits        { 4 }
+Max_Speed        { 10.75 }
+Jump_Speed       { 00.00 }
+Suit_1
+  Internals        { 1 }
+  Armor            { 15 }
+  CRIT_1		  { IS.MediumLaser - - }
+  CRIT_2                  { IS.SRM-2 - OneShot 5 }
+  CRIT_3                  { IS.SRM-2 - OneShot 5 }
+Suit_2
+  Internals        { 1 }
+  Armor            { 15 }
+  CRIT_1		  { IS.MediumLaser - - }
+  CRIT_2                  { IS.SRM-2 - OneShot 5 }
+  CRIT_3                  { IS.SRM-2 - OneShot 5 }
+Suit_3
+  Internals        { 1 }
+  Armor            { 15 }
+  CRIT_1		  { IS.MediumLaser - - }
+  CRIT_2                  { IS.SRM-2 - OneShot 5 }
+  CRIT_3                  { IS.SRM-2 - OneShot 5 }
+Suit_4
+  Internals        { 1 }
+  Armor            { 15 }
+  CRIT_1		  { IS.MediumLaser - - }
+  CRIT_2                  { IS.SRM-2 - OneShot 5 }
+  CRIT_3                  { IS.SRM-2 - OneShot 5 }
+

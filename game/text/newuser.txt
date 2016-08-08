@@ -1,0 +1,5 @@
+Welcome to MUXample!
+
+Please follow the instructions in this room to continue with the game. If
+you have any questions, please read help or bug a wizard.
+------------------------------------------------------------------------------

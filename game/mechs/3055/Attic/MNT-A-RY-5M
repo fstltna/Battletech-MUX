@@ -1,0 +1,80 @@
+Name		 { Mantaray }
+Reference        { MNT-A-RY-5M }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 95 }
+Computer         { 4 }
+Radio            { 4 }
+Heat_Sinks       { 28 }
+Max_Speed        { 64.50 }
+Specials         { DoubleHS }
+Left_Arm
+  Armor            { 30 }
+  Internals        { 16 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-6		  { IS.ERPPC - - }
+    CRIT_7		  { IS.MediumPulseLaser - - }
+    CRIT_8		  { IS.MediumPulseLaser - - }
+Right_Arm
+  Armor            { 30 }
+  Internals        { 16 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-10		  { IS.GaussRifle - - }
+    CRIT_11-12		  { Ammo_IS.GaussRifle 8 - }
+Left_Torso
+  Armor            { 30 }
+  Internals        { 20 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4		  { IS.MediumPulseLaser - - }
+    CRIT_5		  { IS.MediumPulseLaser - - }
+    CRIT_6		  { IS.MachineGun - RearMount }
+    CRIT_7-12		  { FerroFibrous - - }
+Right_Torso
+  Armor            { 30 }
+  Internals        { 20 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4		  { IS.MediumPulseLaser - - }
+    CRIT_5		  { IS.MediumPulseLaser - - }
+    CRIT_6		  { IS.MachineGun - RearMount }
+    CRIT_7-10		  { FerroFibrous - - }
+    CRIT_11		  { Ammo_IS.Anti-MissileSystem 12 - }
+    CRIT_12		  { Ammo_IS.MachineGun 200 - }
+Center_Torso
+  Armor            { 37 }
+  Internals        { 30 }
+  Rear             { 15 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+    CRIT_11-12		  { FerroFibrous - - }
+Left_Leg
+  Armor            { 30 }
+  Internals        { 20 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5		  { FerroFibrous - - }
+Right_Leg
+  Armor            { 30 }
+  Internals        { 20 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5		  { FerroFibrous - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_4		  { IS.Anti-MissileSystem - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }

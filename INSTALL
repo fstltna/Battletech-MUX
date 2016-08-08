@@ -1,0 +1,19 @@
+
+                             Battletech MUX
+
+To compile the Battletech MUX source, 'cd' into the 'src' directory and type
+'./configure'. This will autodetect some values for your system. When it is
+done, cd back to the top directory (where this file rests) and type 'make'.
+If you want to run the example database in the game/ directory, you can run
+'make install' to move the executables to the right place. Otherwise, move
+them to your own game/bin directory.
+
+To run the example database, cd into the 'game' directory after running
+'make install', and run './Startmux'. Also see the README in the 'game'
+directory.
+
+The example database in game/ is purely that, an example. It does not,
+currently, contain anything really useful on a production site.
+Contributions of softcode, for general inclusion under the 3030MUX Artistic
+License, are gratefully accepted, preferably in @disassemble output.
+

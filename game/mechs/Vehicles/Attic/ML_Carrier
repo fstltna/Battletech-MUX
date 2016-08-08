@@ -1,0 +1,28 @@
+Name             { SRM Carrier }
+Reference        { ML_Carrier }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 60 }
+Computer         { 3 }
+Heat_Sinks       { 24 }
+Max_Speed        { 53.75 }
+Left_Side
+  Armor            { 12 }
+  Internals        { 6 }
+Right_Side
+  Armor            { 12 }
+  Internals        { 6 }
+Front_Side
+  Armor            { 12 }
+  Internals        { 6 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MediumLaser - - 3 }
+    CRIT_3		  { IS.MediumLaser - - 3 }
+    CRIT_4		  { IS.MediumLaser - - 3 }
+    CRIT_5		  { IS.MediumLaser - - 3 }
+    CRIT_6		  { IS.MediumLaser - - 3 }
+    CRIT_7		  { IS.MediumLaser - - 3 }
+    CRIT_8		  { IS.MediumLaser - - 3 }
+Aft_Side
+  Armor            { 12 }
+  Internals        { 6 }

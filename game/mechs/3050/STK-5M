@@ -1,0 +1,78 @@
+Name             { Stalker }
+Reference        { STK-5M }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 85 }
+Comment          { Saved by: Charlemagne(#4624) at Wed Feb 16 08:03:36 2000 }
+Computer         { 4 }
+Radio            { 4 }
+Heat_Sinks       { 34 }
+Mech_BV          { 1316 }
+Max_Speed        { 53.75 }
+Specials         { DoubleHS FlipArms }
+Left_Arm
+  Armor            { 25 }
+  Internals        { 14 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3-5		  { HeatSink - - 3 }
+    CRIT_6-7		  { IS.LRM-10 - - 3 }
+    CRIT_8		  { IS.MediumLaser - - 3 }
+    CRIT_9		  { IS.MediumLaser - - 3 }
+    CRIT_10-11		  { Ammo_IS.LRM-10 12 Narc/Smoke - }
+Right_Arm
+  Armor            { 25 }
+  Internals        { 14 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3-5		  { HeatSink - - 3 }
+    CRIT_6-7		  { IS.LRM-10 - - 3 }
+    CRIT_8		  { IS.MediumLaser - - 3 }
+    CRIT_9		  { IS.MediumLaser - - 3 }
+    CRIT_10-11		  { Ammo_IS.LRM-10 12 Narc/Smoke - }
+Left_Torso
+  Armor            { 27 }
+  Internals        { 18 }
+  Rear             { 9 }
+    CRIT_1-6		  { HeatSink - - 3 }
+    CRIT_7-8		  { IS.SRM-6 - - 3 }
+    CRIT_9-10		  { IS.NarcBeacon - - 3 }
+    CRIT_11		  { Ammo_IS.SRM-6 15 Narc/Smoke - }
+Right_Torso
+  Armor            { 27 }
+  Internals        { 18 }
+  Rear             { 9 }
+    CRIT_1-9		  { HeatSink - - 3 }
+    CRIT_10-11		  { IS.SRM-6 - - 3 }
+    CRIT_12		  { Ammo_IS.SRM-6 15 Narc/Smoke - }
+Center_Torso
+  Armor            { 36 }
+  Internals        { 27 }
+  Rear             { 11 }
+    CRIT_1-3		  { Engine - - 3 }
+    CRIT_4-7		  { Gyro - - 3 }
+    CRIT_8-10		  { Engine - - 3 }
+    CRIT_11-12		  { IS.ERLargeLaser - - 3 }
+Left_Leg
+  Armor            { 27 }
+  Internals        { 18 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3		  { LowerActuator - - 3 }
+    CRIT_4		  { HandOrFootActuator - - 3 }
+    CRIT_5-6		  { Ammo_IS.NarcBeacon 6 - - }
+Right_Leg
+  Armor            { 27 }
+  Internals        { 18 }
+    CRIT_1		  { ShoulderOrHip - - 3 }
+    CRIT_2		  { UpperActuator - - 3 }
+    CRIT_3		  { LowerActuator - - 3 }
+    CRIT_4		  { HandOrFootActuator - - 3 }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - 3 }
+    CRIT_2		  { Sensors - - 3 }
+    CRIT_3		  { Cockpit - - 3 }
+    CRIT_5		  { Sensors - - 3 }
+    CRIT_6		  { LifeSupport - - 3 }

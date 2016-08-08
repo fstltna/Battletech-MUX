@@ -1,0 +1,66 @@
+Name             { Marauder }
+Reference        { MAD-3RC }
+Type             { Mech }
+Move_Type        { Biped }
+Tons             { 75 }
+Computer         { 4 }
+Heat_Sinks       { 16 }
+Max_Speed        { 64.50 }
+Left_Arm
+  Armor            { 22 }
+  Internals        { 12 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-5		  { CL.LargePulseLaser - - }
+    CRIT_6		  { CL.MediumLaser - - }
+Right_Arm
+  Armor            { 22 }
+  Internals        { 12 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4-5		  { CL.LargePulseLaser - - }
+    CRIT_6		  { CL.MediumLaser - - }
+Left_Torso
+  Armor            { 17 }
+  Internals        { 16 }
+  Rear             { 8 }
+    CRIT_1		  { Ammo_CL.UltraAC/5 20 - }
+Right_Torso
+  Armor            { 17 }
+  Internals        { 16 }
+  Rear             { 8 }
+    CRIT_1-3		  { CL.UltraAC/5 - - }
+Center_Torso
+  Armor            { 35 }
+  Internals        { 23 }
+  Rear             { 10 }
+    CRIT_1-3		  { Engine - - }
+    CRIT_4-7		  { Gyro - - }
+    CRIT_8-10		  { Engine - - }
+Left_Leg
+  Armor            { 18 }
+  Internals        { 16 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { HeatSink - - }
+Right_Leg
+  Armor            { 18 }
+  Internals        { 16 }
+    CRIT_1		  { ShoulderOrHip - - }
+    CRIT_2		  { UpperActuator - - }
+    CRIT_3		  { LowerActuator - - }
+    CRIT_4		  { HandOrFootActuator - - }
+    CRIT_5-6		  { HeatSink - - }
+Head
+  Armor            { 9 }
+  Internals        { 3 }
+    CRIT_1		  { LifeSupport - - }
+    CRIT_2		  { Sensors - - }
+    CRIT_3		  { Cockpit - - }
+    CRIT_5		  { Sensors - - }
+    CRIT_6		  { LifeSupport - - }
+Specials { Clan }

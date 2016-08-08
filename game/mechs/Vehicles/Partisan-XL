@@ -1,0 +1,34 @@
+Name             { Partisan }
+Reference        { Partisan-XL }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 80 }
+Comment          { Saved by: Tantrum(#4394) at Wed Feb 16 20:14:50 2000 }
+Mech_BV          { 861 }
+Max_Speed        { 53.75 }
+Specials         { AntiAircraft XLEngine_Tech }
+Left_Side
+  Armor            { 40 }
+  Internals        { 8 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Right_Side
+  Armor            { 40 }
+  Internals        { 8 }
+    CRIT_6-12		  { FerroFibrous - - 3 }
+Front_Side
+  Armor            { 50 }
+  Internals        { 8 }
+Aft_Side
+  Armor            { 35 }
+  Internals        { 8 }
+    CRIT_1-2		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_3		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
+    CRIT_4-7		  { Ammo_IS.UltraAC/5 20 - - }
+Turret
+  Armor            { 50 }
+  Internals        { 8 }
+    CRIT_1		  { IS.LB10-XAC - - 3 }
+    CRIT_2		  { IS.LB10-XAC - - 3 }
+    CRIT_3		  { IS.UltraAC/5 - - 3 }
+    CRIT_4		  { IS.UltraAC/5 - - 3 }
+    CRIT_5		  { C3Slave - - 0 }

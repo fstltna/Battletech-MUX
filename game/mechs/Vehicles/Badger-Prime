@@ -1,0 +1,31 @@
+Name             { Badger }
+Reference        { Badger-Prime }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 30 }
+Comment          { Saved by: Spectre(#4628) at Mon Jan 14 13:02:46 2002 }
+Mech_BV          { 393 }
+Cargo_Space      { 4096 }
+Max_Suits        { 0 }
+Max_Speed        { 96.75 }
+Specials         { CargoTech }
+Left_Side
+  Armor            { 18 }
+  Internals        { 3 }
+Right_Side
+  Armor            { 18 }
+  Internals        { 3 }
+Front_Side
+  Armor            { 20 }
+  Internals        { 3 }
+    CRIT_1		  { IS.SRM-2 - - 3 }
+    CRIT_2		  { Ammo_IS.SRM-2 50 - - }
+Aft_Side
+  Armor            { 16 }
+  Internals        { 3 }
+Turret
+  Armor            { 6 }
+  Internals        { 3 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MediumLaser - - 3 }
+    CRIT_3		  { IS.MediumLaser - - 3 }

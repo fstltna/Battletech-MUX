@@ -1,0 +1,29 @@
+Name             { Magi }
+Reference        { Magi }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 70 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:39:38 2000 }
+Computer         { 3 }
+Mech_BV          { 395 }
+Cargo_Space      { 256 }
+Max_Speed        { 86.00 }
+Left_Side
+  Armor            { 43 }
+  Internals        { 7 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+Right_Side
+  Armor            { 43 }
+  Internals        { 7 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+Front_Side
+  Armor            { 44 }
+  Internals        { 7 }
+    CRIT_1		  { IS.MediumLaser - - 3 }
+    CRIT_2		  { IS.MachineGun - - 3 }
+    CRIT_3		  { IS.MachineGun - - 3 }
+    CRIT_4		  { Ammo_IS.MachineGun 200 - - }
+Aft_Side
+  Armor            { 40 }
+  Internals        { 7 }
+    CRIT_1		  { Case - - 3 }

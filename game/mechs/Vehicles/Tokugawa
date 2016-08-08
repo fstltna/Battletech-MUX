@@ -1,0 +1,31 @@
+Name             { Tokugawa }
+Reference        { Tokugawa }
+Type             { Vehicle }
+Move_Type        { Wheel }
+Tons             { 60 }
+Comment          { Saved by: Charlemagne(#4624) at Wed Feb 16 07:59:03 2000 }
+Mech_BV          { 586 }
+Max_Speed        { 64.50 }
+Left_Side
+  Armor            { 33 }
+  Internals        { 6 }
+Right_Side
+  Armor            { 33 }
+  Internals        { 6 }
+Front_Side
+  Armor            { 40 }
+  Internals        { 6 }
+    CRIT_1		  { IS.MediumPulseLaser - - 3 }
+    CRIT_2		  { IS.MediumPulseLaser - - 3 }
+Aft_Side
+  Armor            { 26 }
+  Internals        { 6 }
+Turret
+  Armor            { 36 }
+  Internals        { 6 }
+    CRIT_1		  { IS.LB10-XAC - - 3 }
+    CRIT_2-3		  { Ammo_IS.LB10-XAC 10 - - }
+    CRIT_4		  { Ammo_IS.LB10-XAC 10 LBX/Cluster - }
+    CRIT_5		  { IS.SRM-6 - - 3 }
+    CRIT_6		  { ArtemisIV - - 3 }
+    CRIT_7		  { Ammo_IS.SRM-6 15 Artemis/Mine - }

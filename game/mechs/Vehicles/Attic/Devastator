@@ -1,0 +1,31 @@
+Name             { Devastator }
+Reference        { Devastator }
+Type             { Vehicle }
+Move_Type        { Track }
+Tons             { 80 }
+Computer         { 3 }
+Heat_Sinks       { 24 }
+Max_Speed        { 53.75 }
+Left_Side
+  Armor            { 30 }
+  Internals        { 8 }
+    CRIT_1		  { IS.SmallLaser - - }
+Right_Side
+  Armor            { 30 }
+  Internals        { 8 }
+    CRIT_1		  { IS.SmallLaser - - }
+Front_Side
+  Armor            { 40 }
+  Internals        { 8 }
+    CRIT_1		  { IS.SmallLaser - - }
+    CRIT_2		  { IS.SRM-6 - - }
+    CRIT_3		  { Ammo_IS.SRM-6 15 - }
+Aft_Side
+  Armor            { 20 }
+  Internals        { 8 }
+Turret
+  Armor            { 40 }
+  Internals        { 8 }
+    CRIT_1-2		  { IS.AC/20 - - }
+    CRIT_3		  { IS.Flamer - - }
+    CRIT_4-6		  { Ammo_IS.AC/20 5 - }

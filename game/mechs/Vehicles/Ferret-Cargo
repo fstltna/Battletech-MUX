@@ -1,0 +1,20 @@
+Name             { Ferret }
+Reference        { Ferret-Cargo }
+Type             { VTOL }
+Move_Type        { VTOL }
+Tons             { 5 }
+Comment          { Saved by: Charlemagne(#4624) at Sat Mar  4 14:49:18 2000 }
+Mech_BV          { 1 }
+Cargo_Space      { 275 }
+Max_Speed        { 247.25 }
+Specials         { CargoTech ICEEngine_Tech }
+Left_Side
+  Internals        { 1 }
+Right_Side
+  Internals        { 1 }
+Front_Side
+  Internals        { 1 }
+Aft_Side
+  Internals        { 1 }
+Rotor
+  Internals        { 1 }
