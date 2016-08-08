@@ -216,7 +216,7 @@ char *exp;
     char *longest;
     int len;
     int flags;
-    extern char *malloc();
+    extern void *malloc();
 
     if (exp == NULL)
 	FAIL("NULL argument");
