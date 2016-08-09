@@ -2,7 +2,7 @@
 
 CC             = @CC@
 MAKEDEPEND     = gcc -MM
-CFLAGS         = -g -Wall -O2 -Wno-unused -fno-strict-aliasing
+CFLAGS         = -g -Wall -O2 -Wno-unused -fno-strict-aliasing -E
 
 INCLUDES       = -Iinclude -Isrc -Isrc/hcode/include -Isrc/hcode/btech
 LIBS           = @LIBS@
@@ -185,7 +185,7 @@ install: $(TARGETS)
 	if [ ! -d game.run/bin ]; then \
 	    mkdir game.run/bin/; \
 	fi
-	mv -f $(TARGETS) game.run/bin/
+#	mv -f $(TARGETS) game.run/bin/
 
 netmux src/netmux: $(ALLOBJS) src/version.c src/buildnum.sh
 	$(CC) $(ALLFLAGS) $(VERSION_FLAGS) -c src/version.c -o src/version.o

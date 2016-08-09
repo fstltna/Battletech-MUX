@@ -1,9 +1,10 @@
 
                              Battletech MUX
 
-To compile the Battletech MUX source, 'cd' into the 'src' directory and type
-'./configure'. This will autodetect some values for your system. When it is
-done, cd back to the top directory (where this file rests) and type 'make'.
+To compile the Battletech MUX source, 'cd' into the 'Battletech-MUX' directory
+and type './configure'. This will autodetect some values for your system. When
+it is done, type 'make'.
+
 If you want to run the example database in the game/ directory, you can run
 'make install' to move the executables to the right place. Otherwise, move
 them to your own game/bin directory.
