@@ -2,7 +2,7 @@
 
 CC             = @CC@
 MAKEDEPEND     = gcc -MM
-CFLAGS         = -g -Wall -O2 -Wno-unused -fno-strict-aliasing -E
+CFLAGS         = -g -Wall -O2 -Wno-unused -fno-strict-aliasing -w -m32
 
 INCLUDES       = -Iinclude -Isrc -Isrc/hcode/include -Isrc/hcode/btech
 LIBS           = @LIBS@
@@ -192,7 +192,7 @@ netmux src/netmux: $(ALLOBJS) src/version.c src/buildnum.sh
 	$(CC) $(ALLFLAGS) -o src/netmux $(ALLOBJS) src/version.o $(LIBS)
 
 clean:
-	rm -f $(ALLOBJS) src/version.o src/netmux src/mkindx src/unsplit
+	rm -f $(ALLOBJS) src/version.o src/netmux src/mkindx src/unsplit src/mkindx.o src/unsplit.o
 
 slave src/slave: src/slave.c
 	$(CC) $(ALLFLAGS) -o src/slave src/slave.c
